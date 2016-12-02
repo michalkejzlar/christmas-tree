@@ -15,6 +15,9 @@ import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 import com.google.android.exoplayer2.extractor.ExtractorsFactory;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.dash.DashChunkSource;
+import com.google.android.exoplayer2.source.dash.DashMediaSource;
+import com.google.android.exoplayer2.source.dash.DefaultDashChunkSource;
 import com.google.android.exoplayer2.source.hls.HlsMediaSource;
 import com.google.android.exoplayer2.trackselection.AdaptiveVideoTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
@@ -25,6 +28,8 @@ import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
+import com.google.android.exoplayer2.upstream.HttpDataSource;
 import com.google.android.exoplayer2.util.Util;
 
 import butterknife.BindView;
@@ -49,7 +54,7 @@ public class FullscreenPlayerActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setupPlayer();
+        setupPlayer2();
     }
 
     void setupPlayer() {
@@ -78,6 +83,39 @@ public class FullscreenPlayerActivity extends AppCompatActivity {
                 0, null, null
         );
         player.prepare(hlsMediaSource);
+    }
+
+
+    void setupPlayer2() {
+        // 1. Create a default TrackSelector
+        Handler mainHandler = new Handler();
+        BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+        TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveVideoTrackSelection.Factory(bandwidthMeter);
+        TrackSelector trackSelector = new DefaultTrackSelector(mainHandler, videoTrackSelectionFactory);
+
+        // 2. Create a default LoadControl
+        LoadControl loadControl = new DefaultLoadControl();
+
+        // 3. Create the player
+        SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(this, trackSelector, loadControl);
+
+        // Bind the player to the view.
+        playerView.setPlayer(player);
+
+        player.setPlayWhenReady(true);
+
+
+        HttpDataSource.Factory mDataSourceFactory;
+        mDataSourceFactory = new DefaultHttpDataSourceFactory("DrmPlayActivity");
+
+        DashMediaSource dashMediaSource = new DashMediaSource(Uri.parse("http://52.210.200.55:1935/stromcek/myStream/manifest.mpd"),
+                mDataSourceFactory,
+                new DefaultDashChunkSource.Factory(mDataSourceFactory),
+                null,
+                null
+        );
+        player.prepare(dashMediaSource, true, true);
+
     }
 
 

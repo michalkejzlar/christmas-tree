@@ -18,9 +18,11 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDialog;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
@@ -282,6 +284,11 @@ public class VenueDetailActivity extends AppCompatActivity {
 
         SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(phoneNumber, null, message, sentPI, deliveredPI);
+    }
+
+    private void showUserMessagePickerDialog(){
+        DialogFragment dialogFragment = new DialogFragment();
+
     }
 
 }

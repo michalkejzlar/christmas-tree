@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.firebaseui/firebase-ui-auth/0.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9f21cd628ef85c35105a2a0e719d11dc4f89ae76">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.firebaseui-firebase-ui-auth-0.6.1_7871b4b231c47d37d77e21078334d7eb2684f55e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/glide-3.7.0_5990b3f31cf3b6b4d135f60dc550dba3f1bd9d9a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="da3f763afd39da1c947d9442847c837e9182a09f">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-9.6.1_a060d9ed341fec07f4fcc89e78e5190ef25da3c3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-common/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="77558e74bb2056ef38516296f13a27c4c4fc3e5c">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-common-9.6.1_03e148eec4eb61710ad31522d9adb4c314a9b00c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.0.1_1f4962b08bd07190cf004a964918a928bbdef376/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.1.5/ece7b5d0870e66d8226dab6dcf47a2b12afff061/rxjava-1.1.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ece7b5d0870e66d8226dab6dcf47a2b12afff061">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/rxjava-1.1.5_f9363b63a753bad6c5da48d43cac28d53f09ef98/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.0.1_9c106a512a78d7d254e0f0e22041a9e8b25ae35a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="297d4bcf6ed4e747a1bf7d0d094a2d911a8d3a8e">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.0.1_7f489f3261001c8500081c236e477e9edcd5f992/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.firebaseui/firebase-ui-storage/0.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="cf8c0b6ec17f059cf61ecd101296e16c38562196">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.firebaseui-firebase-ui-storage-0.6.1_fce294e06e4f9e1e0a89fcea680a2f3f1a9aabf0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.0.1_9a0a2e9cd880ae5fe332bdf6380f6334d15949a8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/palette-v7/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="783127c8b1d23b84cccc3dc776ca4637d4aba900">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-palette-v7-25.0.1_e528d8a961cf136d36ed54b95ef74fc65e8f6140/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_0ff8486d1ce7af6bd16a9dc32924683d5274ceb5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-tasks-1.4.0_9c2dbb87fe962919458182a0cb039da3a4a0bc51/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1f2754b1217d05731576e5353828ba3345e94179">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_1243cc8a528603165e2fadef582620e4eb1d9bee/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.firebaseui/firebase-ui-database/0.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a3a0e05009f5b1d19f0cabdfe7d5453a9184e1c6">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.firebaseui-firebase-ui-database-0.6.1_a47d5e7d6d705eed25909f619e64eeb9e4c6a25c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="465f40f840e583f8b7421a3aacf3fbf08c28f00a">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-9.6.1_87fd837b5260f098bec5967bf92c6fc7cc6b5526/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3b236883e0df6002cabb01ce57d00a5b1e5de610">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.0.1_f2ce25788498f63b56156ff87cccd4d515928662/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.0.1_189cd7e4faced691b813ac76e3c6575b169e0caf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="af7582c6b327449c6d32518e6a10307860b7b5d6">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.6.1_485ca3eca62a6a4532bbb2ff7994fe20b6761e84/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.0.1_b988da440feb770900b67abb72370b07ce7f57e5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f83b00041ecfba705603fec40363416c7de69719">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_3950fe3a78b225a13eaf17c409e82b147a6e18ba/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-module/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6ffe8b28ab61e5ee92ab9431a220379790c71ddf">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-module-9.6.1_2284712c99d479e9cdd99a631ac1ac4851ee810f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.1_dcca814491fa70b8268aa5528cfaf3f6642ed1c0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.0.1_20ba6ddd63f58d4ee6faf1524a954b2b3e8dca08/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.jakewharton-butterknife-8.4.0_9944150528e475e74a8faf9bbe341b06be6465f7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.0.1_61826ed3c6d47c549213bc8e3b0b62ce3b9f515a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.0.1_5e7f9ae72f7ba477250b9a0296cdfbc6f54b1cc4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.14.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="42a3ae86dd3ae2876d3e95c2e6e104ae57a50a65">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.14.1_ea277d177192d8bf6c3b8358946bf0b073c8b73b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_7af9ca9476db18ee31cdd3ad7b789527f67cc7f6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.1/support-annotations-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.1_dae78e5b9081b372f38e1b7cb91e824597703805/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.0.1_a2dc775c98c200d3aed0848bc0677715a0064b6a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.1_ec685bfd0cbfe31142087e1114d1f96fc83c7370/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.android.exoplayer/exoplayer/r2.0.4/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="896f01576fdaf7a99004406ef84c17af64e38743">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.exoplayer-exoplayer-r2.0.4_46ec4d9868a8771cab65cbc4b0538945ce47aad0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/customtabs/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2d1eaa9e0b98f8fc4c2b989d9b30d4f1480648ac">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-customtabs-23.4.0_faf869124aa63eca207fc91eecfeb2fb7dbad813/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.0.1_840810ceb453796b8962be75bad7917738927aec/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.0.1_d185926f5b7d7d0b658605c987fde09c215d9bf1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-10.0.1_f453dd2f7932ff75f1b7197201d1499eb3419d04/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c1b6ab157e8e12cb08b9ee82bb5e3c5d22632eb3">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.0.1_e6f28675e47041560889ce559d4ef5f3f2c25e57/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.0.1_7dd2355b7c76589629fd3cfc237065e02bde3bdc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/butterknife-annotations-8.4.0_114f6fe7c3ec6a16d553384af38f8a7b2ed2d808/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8c6ef5bd4072f8cda2b89d8356ea7d8acd0683aa">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-9.6.1_4618987d89ab2c501593d89d1a3ca2472fec20b2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-applinks-1.4.0_600d1fbb13812bebc28b01a7d9351dc81d6a169e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.firebaseui/firebase-ui/0.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="16226703bab55ec42457666213cd3503799d36a8">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.firebaseui-firebase-ui-0.6.1_55f8713b3b756f6f9b3b15c60378c2c3e9174e95/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.1_8aa84e98f0ad837b100ad1c8f5a5b7137b42b082/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/percent/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b0e10a526509572537612820f2e46b7436f6c188">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-percent-25.0.1_efbca2ed0e558263ef5f3444b30a57ff2c079d33/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_52c46e86e7c09de8b52337511962d3c98c9541fe/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_3cce3fee7fb564ed59e19efb7f9f7f8326fe2316/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.0.1_363909c4599dad9bd4e98b936671b6b06be04c62/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5c69bc32f2f082a43ea33c382cc67ae2f20256f8">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_4a30d94d00141b5d320d3cee1552ff754172591f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="159494eb362396d073d8c922b77e40c0da5fc5bc">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-common-9.6.1_a6c7b0dc1b3757be6323631410d7b2bac28f18f3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1108575c7dc7b7f5b378b3290ac90de81a9b8830">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-25.0.1_db708eb449ec13aeb7f82258ffe6434c68f8b58e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.android.support/gridlayout-v7/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4700f436ede140fb804204f806c9cc3f08e386f4">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-gridlayout-v7-25.0.1_1111da4562f37f354a0fa51164a0285c3076025a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2a18547ea91d258866d132c2a763185f15b01b25">
+        <dex dex="/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-9.6.1_228c22020bed8b9b1412128ed041293c275f1865/classes.dex" />
+    </item>
+
+</items>
