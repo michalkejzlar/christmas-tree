@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F44336</color>
+    <color name="colorPrimaryDark">#B71C1C</color>
+    <color name="colorAccent">#40c4ff</color>
+
+    <color name="colorTabSelected">#3F51B5</color>
+    <color name="colorTabUnselected">#AA3F51B5</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="background_light">#fff</color>
+
+    <color name="ripple_light">#99ffffff</color>
+    <color name="ripple_dark">@color/mid_grey</color>
+
+    <color name="mid_grey">#40808080</color>
+    <color name="light_grey">#fff5f5f5</color>
+
+    <color name="starColor">#f9c63c</color>
+    <color name="tag_color">#aaa</color>
+    <color name="content_placeholder">#ffe0e0e0</color>
+    <color name="availabilityOpened">#45b32f</color>
+    <color name="availabilityClosed">#dc3347</color>
+    <color name="dark_icon">#99000000</color> <!-- 60% black-->
+</resources>

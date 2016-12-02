@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/venue_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/venue_imv_picture"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:transitionName="picture"/>
+
+    <LinearLayout
+        android:id="@+id/venue_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/venue_imv_picture"
+        android:orientation="vertical"
+        android:paddingBottom="12dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/venue_txv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#444"
+            android:textSize="23sp"
+            tools:text="Title"
+            android:fontFamily="sans-serif-black"/>
+
+        <TextView
+            android:id="@+id/venue_txv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#666"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            tools:text="Praha..."
+            android:fontFamily="sans-black"/>
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

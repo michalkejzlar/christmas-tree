@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Stromeček</string>
+    <string name="btn_send_dms">Pošli DMS (%.2f Kč)</string>
+    <string name="sms_permissions_needed">Pro odesílání SMS je třeba udělit oprávnění</string>
+
+    <string name="title_activity_fullscreen_player">FullscreenPlayerActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="btn_show_stream">Video stream</string>
+</resources>
