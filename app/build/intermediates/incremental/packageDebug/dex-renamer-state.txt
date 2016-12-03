@@ -1,7 +1,0 @@
-#Fri Dec 02 23:03:08 CET 2016
-base.0=/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_1243cc8a528603165e2fadef582620e4eb1d9bee
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_4a30d94d00141b5d320d3cee1552ff754172591f/classes.dex
-base.1=/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_4a30d94d00141b5d320d3cee1552ff754172591f
-file.0=/Users/Jakub/repositories/easycore/Stromecek/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_1243cc8a528603165e2fadef582620e4eb1d9bee/classes.dex
