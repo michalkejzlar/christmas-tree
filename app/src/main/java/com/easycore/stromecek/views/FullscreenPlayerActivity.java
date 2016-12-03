@@ -1,4 +1,4 @@
-package com.easycore.stromecek.views.activities;
+package com.easycore.stromecek.views;
 
 import android.net.Uri;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.easycore.stromecek.views.activities;
+package com.easycore.stromecek.views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +11,6 @@ import android.widget.ImageView;
 
 import com.easycore.stromecek.R;
 import com.easycore.stromecek.model.Venue;
-import com.easycore.stromecek.views.activities.VenueDetailActivity;
-import com.easycore.stromecek.views.adapters.VenuesAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

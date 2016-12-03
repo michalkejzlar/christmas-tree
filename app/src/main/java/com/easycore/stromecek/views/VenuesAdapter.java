@@ -1,4 +1,4 @@
-package com.easycore.stromecek.views.adapters;
+package com.easycore.stromecek.views;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
