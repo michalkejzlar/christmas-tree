@@ -6,7 +6,7 @@ import android.os.Parcelable;
 /**
  * Created by Jakub Begera (jakub@easycoreapps.com) on 02.12.16.
  */
-public class Venue implements Parcelable {
+public class SanitaryPlace implements Parcelable {
     private String name;
     private String address;
     private String picture;
@@ -16,10 +16,10 @@ public class Venue implements Parcelable {
     private String hls;
     private String dsc;
 
-    public Venue() {
+    public SanitaryPlace() {
     }
 
-    protected Venue(Parcel in) {
+    protected SanitaryPlace(Parcel in) {
         name = in.readString();
         address = in.readString();
         picture = in.readString();
@@ -47,15 +47,15 @@ public class Venue implements Parcelable {
         return 0;
     }
 
-    public static final Creator<Venue> CREATOR = new Creator<Venue>() {
+    public static final Creator<SanitaryPlace> CREATOR = new Creator<SanitaryPlace>() {
         @Override
-        public Venue createFromParcel(Parcel in) {
-            return new Venue(in);
+        public SanitaryPlace createFromParcel(Parcel in) {
+            return new SanitaryPlace(in);
         }
 
         @Override
-        public Venue[] newArray(int size) {
-            return new Venue[size];
+        public SanitaryPlace[] newArray(int size) {
+            return new SanitaryPlace[size];
         }
     };
 

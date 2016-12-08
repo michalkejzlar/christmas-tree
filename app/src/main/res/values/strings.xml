@@ -7,4 +7,5 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="btn_show_stream">Video stream</string>
+    <string name="intro_text">Pošli DMSku a rozsviť si tím stromeček podle sebe. \n\nPřispěješ tím na dobrou věc.</string>
 </resources>

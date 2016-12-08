@@ -20,8 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".views.VenueDetailActivity"
+            android:name=".views.SanitaryPlaceActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
 
         <receiver android:name=".utils.SmsReceiver">
@@ -30,11 +31,6 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name=".views.FullscreenPlayerActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_fullscreen_player"
-            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>

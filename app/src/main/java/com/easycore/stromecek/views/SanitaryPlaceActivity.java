@@ -9,92 +9,77 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
+import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
-import android.text.Html;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
-import com.easycore.stromecek.R;
-import com.easycore.stromecek.model.Venue;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.easycore.stromecek.BuildConfig;
+import com.easycore.stromecek.R;
+import com.easycore.stromecek.model.SanitaryPlace;
+import com.google.android.exoplayer2.DefaultLoadControl;
+import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.LoadControl;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.source.dash.DashMediaSource;
+import com.google.android.exoplayer2.source.dash.DefaultDashChunkSource;
+import com.google.android.exoplayer2.source.hls.HlsMediaSource;
+import com.google.android.exoplayer2.trackselection.AdaptiveVideoTrackSelection;
+import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
+import com.google.android.exoplayer2.trackselection.TrackSelection;
+import com.google.android.exoplayer2.trackselection.TrackSelector;
+import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
+import com.google.android.exoplayer2.upstream.*;
+import com.google.android.exoplayer2.util.Util;
 
-public class VenueDetailActivity extends AppCompatActivity {
+public class SanitaryPlaceActivity extends AppCompatActivity {
 
     private static final int REQUEST_PERMISSIONS_SMS = 22321;
+    public static final String TEST_URL = "https://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear1/prog_index.m3u8";
     public static String SMSRECEVID = "custom.action.SMSRECEVEDINFO";
+
     //toolbar
-    @BindView(R.id.venuePictureImageView)
-    protected ImageView venuePictureImageView;
     @BindView(R.id.toolbar)
     protected Toolbar toolbar;
-    @BindView(R.id.backdrop_toolbar)
-    protected CollapsingToolbarLayout backdropToolbar;
 
-    @BindView(R.id.venueNameTextView)
-    protected TextView venueNameTextView;
-
-    @BindView(R.id.txv_venue_dsc)
-    protected TextView txvDsc;
-
-    @BindView(R.id.btn_start_vide_stream)
-    protected Button btnStartVideoStream;
-    @BindView(R.id.btn_send_dms)
-    protected Button btnSendDms;
+    @BindView(R.id.player_view)
+    protected SimpleExoPlayerView playerView;
 
     private ProgressDialog progressDialog;
 
-    private Venue venue;
+    private SanitaryPlace place;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_venue_detail);
+        setContentView(R.layout.fragment_stream_detail);
         ButterKnife.bind(this);
 
-        this.venue = getIntent().getParcelableExtra("venue");
+        this.place = getIntent().getParcelableExtra("place");
 
-        venueNameTextView.setText(venue.getName());
-        btnSendDms.setText(getString(R.string.btn_send_dms, venue.getDmsCost()));
-        txvDsc.setText(Html.fromHtml(venue.getDsc()));
-        Glide.with(this)
-                .load(venue.getPicture())
-                .centerCrop()
-                .into(venuePictureImageView);
+//        venueNameTextView.setText(place.getName());
+//        btnSendDms.setText(getString(R.string.btn_send_dms, place.getDmsCost()));
+//        txvDsc.setText(Html.fromHtml(place.getDsc()));
 
         setupActionbar();
-
-        btnSendDms.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkPermissionAndSendSMS();
-            }
-        });
-        btnStartVideoStream.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(VenueDetailActivity.this, FullscreenPlayerActivity.class);
-                intent.putExtra("venue", venue);
-                startActivity(intent);
-            }
-        });
-
+//        btnSendDms.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                checkPermissionAndSendSMS();
+//            }
+//        });
     }
 
     private void setupActionbar() {
@@ -110,31 +95,19 @@ public class VenueDetailActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    backdropToolbar.setTitle(venue.getName());
-                    isShow = true;
-                } else if (isShow) {
-                    backdropToolbar.setTitle(" ");//carefull there should a space between double quote otherwise it wont work
-                    isShow = false;
-                }
-            }
-        });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        if (playerView.getPlayer() == null) {
+            setupHLS();
+        } else {
+            playerView.getPlayer().setPlayWhenReady(true);
+        }
+
+
         final IntentFilter filter = new IntentFilter("android.provider.Telephony.SMS_RECEIVED");
         registerReceiver(new BroadcastReceiver() {
             @Override
@@ -158,22 +131,38 @@ public class VenueDetailActivity extends AppCompatActivity {
         }, filter);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        playerView.getPlayer().setPlayWhenReady(false);
+    }
 
     @Override
-    public void onBackPressed() {
-        supportFinishAfterTransition();
+    protected void onDestroy() {
+        super.onDestroy();
+        playerView.getPlayer().release();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (android.R.id.home == item.getItemId()) {
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void checkPermissionAndSendSMS() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            sendSMS(venue.getDmsNumber(), venue.getDmsText());
+            sendSMS(place.getDmsNumber(), place.getDmsText());
             return;
         }
 
         final int status = ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS);
 
         if (PackageManager.PERMISSION_GRANTED == status) {
-            sendSMS(venue.getDmsNumber(), venue.getDmsText());
+            sendSMS(place.getDmsNumber(), place.getDmsText());
         } else {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
                 Snackbar.make(findViewById(android.R.id.content), R.string.sms_permissions_needed,
@@ -196,7 +185,7 @@ public class VenueDetailActivity extends AppCompatActivity {
     }
 
     private void sendSMS(String phoneNumber, String message) {
-        progressDialog = ProgressDialog.show(VenueDetailActivity.this, null,
+        progressDialog = ProgressDialog.show(SanitaryPlaceActivity.this, null,
                 "Pos9l8m", true, false);
         progressDialog.show();
 
@@ -261,6 +250,68 @@ public class VenueDetailActivity extends AppCompatActivity {
 
     private void showUserMessagePickerDialog(){
         DialogFragment dialogFragment = new DialogFragment();
+
+    }
+
+    void setupHLS() {
+        // 1. Create a default TrackSelector
+        final Handler mainHandler = new Handler();
+        final BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+        final TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveVideoTrackSelection.Factory(bandwidthMeter);
+        final TrackSelector trackSelector = new DefaultTrackSelector(mainHandler, videoTrackSelectionFactory);
+
+        // 2. Create a default LoadControl
+        final LoadControl loadControl = new DefaultLoadControl();
+
+        // 3. Create the player
+        final SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(this, trackSelector, loadControl);
+
+        // Bind the player to the view.
+        playerView.setUseController(false);
+        playerView.setPlayer(player);
+
+        final DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this, Util.getUserAgent(this,
+                BuildConfig.APPLICATION_ID));
+        player.setPlayWhenReady(true);
+
+        HlsMediaSource hlsMediaSource = new HlsMediaSource(
+                Uri.parse(TEST_URL),
+                dataSourceFactory,
+                0, null, null
+        );
+        player.prepare(hlsMediaSource);
+    }
+
+
+    void setupMPEG() {
+        // 1. Create a default TrackSelector
+        Handler mainHandler = new Handler();
+        BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+        TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveVideoTrackSelection.Factory(bandwidthMeter);
+        TrackSelector trackSelector = new DefaultTrackSelector(mainHandler, videoTrackSelectionFactory);
+
+        // 2. Create a default LoadControl
+        LoadControl loadControl = new DefaultLoadControl();
+
+        // 3. Create the player
+        SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(this, trackSelector, loadControl);
+
+        // Bind the player to the view.
+        playerView.setPlayer(player);
+
+        player.setPlayWhenReady(true);
+
+
+        HttpDataSource.Factory mDataSourceFactory;
+        mDataSourceFactory = new DefaultHttpDataSourceFactory("DrmPlayActivity");
+
+        DashMediaSource dashMediaSource = new DashMediaSource(Uri.parse("http://52.210.200.55:1935/stromcek/myStream/manifest.mpd"),
+                mDataSourceFactory,
+                new DefaultDashChunkSource.Factory(mDataSourceFactory),
+                null,
+                null
+        );
+        player.prepare(dashMediaSource, true, true);
 
     }
 

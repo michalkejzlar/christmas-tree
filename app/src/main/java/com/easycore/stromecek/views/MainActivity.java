@@ -1,30 +1,27 @@
 package com.easycore.stromecek.views;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.ImageView;
-
-import com.easycore.stromecek.R;
-import com.easycore.stromecek.model.Venue;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.easycore.stromecek.R;
+import com.easycore.stromecek.model.SanitaryPlace;
+import com.itsronald.widget.ViewPagerIndicator;
 
-public class MainActivity extends AppCompatActivity implements VenuesAdapter.Callback {
+public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.venues_rcv)
-    protected RecyclerView rcv;
-    private LinearLayoutManager mLinearLayoutManager;
-    private VenuesAdapter adapter;
-    private DatabaseReference mFirebaseDatabaseReference;
-
+    @BindView(R.id.toolbar)
+    protected Toolbar toolbar;
+    @BindView(R.id.viewPager)
+    protected ViewPager viewPager;
+    @BindView(R.id.titles)
+    protected ViewPagerIndicator pagerIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,26 +29,59 @@ public class MainActivity extends AppCompatActivity implements VenuesAdapter.Cal
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference("venues");
-        adapter = new VenuesAdapter(mFirebaseDatabaseReference, this, this);
-        mLinearLayoutManager = new LinearLayoutManager(this);
-        rcv.setLayoutManager(mLinearLayoutManager);
-        rcv.setAdapter(adapter);
+        setSupportActionBar(toolbar);
 
+        assert getSupportActionBar() != null;
+
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_white_24dp);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (android.R.id.home == item.getItemId()) {
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
+    void showNextPage() {
+        final int items = viewPager.getAdapter().getCount();
 
-    @Override
-    public void onVenueClicked(Venue venue, ImageView imageView) {
-        Intent intent = new Intent(this, VenueDetailActivity.class);
-        intent.putExtra("venue", venue);
-        ActivityOptionsCompat options = ActivityOptionsCompat.
-                makeSceneTransitionAnimation(this, (View) imageView, "picture");
-        startActivity(intent, options.toBundle());
+        if (items - viewPager.getCurrentItem() == 1) {
+            // last
+            return;
+        }
+        viewPager.setCurrentItem(viewPager.getCurrentItem() + 1, true);
+    }
+
+    final static class PagerAdapter extends FragmentPagerAdapter {
+
+        private static int ITEMS = 2;
+
+        PagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return IntroFragment.getInstance();
+                default:
+                    return StreamFragment.getInstance(new SanitaryPlace());
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return ITEMS;
+        }
     }
 }

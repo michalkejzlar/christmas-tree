@@ -8,19 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowActionBarOverlay">true</item>
         <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
         <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
         <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowContentTransitions">true</item>
-
     </style>
 
     <style name="StromecekDarkOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    </style>
-
-    <style name="Stromecek.Fullscreen" parent="Stromecek">
-        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="FullscreenTheme" parent="Stromecek">

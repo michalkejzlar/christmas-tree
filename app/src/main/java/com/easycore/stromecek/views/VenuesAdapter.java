@@ -20,7 +20,7 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.easycore.stromecek.R;
-import com.easycore.stromecek.model.Venue;
+import com.easycore.stromecek.model.SanitaryPlace;
 import com.easycore.stromecek.utils.ObservableColorMatrix;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -36,7 +36,7 @@ import static com.easycore.stromecek.utils.AnimUtils.getFastOutSlowInInterpolato
  */
 public class VenuesAdapter  extends RecyclerView.Adapter<VenuesAdapter.VenueViewHolder>{
 
-    private ArrayList<Venue> venues;
+    private ArrayList<SanitaryPlace> venues;
     private final DatabaseReference mFirebaseDatabaseReference;
     private final Context context;
     private Callback callback;
@@ -51,7 +51,7 @@ public class VenuesAdapter  extends RecyclerView.Adapter<VenuesAdapter.VenueView
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Log.i("Venue added", dataSnapshot.toString());
-                Venue venue = new Venue();
+                SanitaryPlace venue = new SanitaryPlace();
 
                 if (dataSnapshot.hasChild("name")) {
                     venue.setName(dataSnapshot.child("name").getValue().toString());
@@ -121,7 +121,7 @@ public class VenuesAdapter  extends RecyclerView.Adapter<VenuesAdapter.VenueView
 
     @Override
     public void onBindViewHolder(final VenuesAdapter.VenueViewHolder holder, int position) {
-        final Venue venue = venues.get(position);
+        final SanitaryPlace venue = venues.get(position);
 
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -205,6 +205,6 @@ public class VenuesAdapter  extends RecyclerView.Adapter<VenuesAdapter.VenueView
     }
 
     public interface Callback {
-        void onVenueClicked(Venue venue, ImageView imageView);
+        void onVenueClicked(SanitaryPlace venue, ImageView imageView);
     }
 }
