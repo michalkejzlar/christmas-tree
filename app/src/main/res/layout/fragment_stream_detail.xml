@@ -1,44 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<android.support.design.widget.CoordinatorLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:tools="http://schemas.android.com/tools"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
-		android:id="@+id/activity_venue_detail_acticity"
+		android:id="@+id/coordinator"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		tools:context="com.easycore.stromecek.views.SanitaryPlaceActivity">
 
-		<android.support.percent.PercentRelativeLayout
-				android:layout_width="match_parent"
-				android:layout_height="match_parent">
+	<android.support.v4.widget.NestedScrollView
+			android:id="@+id/scrollView"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-			<com.google.android.exoplayer2.ui.SimpleExoPlayerView
-					android:id="@+id/player_view"
-					android:layout_width="match_parent"
-					android:layout_height="match_parent"
-					app:layout_marginBottomPercent="10%"
-					app:use_texture_view="true"
-					app:resize_mode="fit"
-					app:use_controller="false"/>
+		<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+
+			<FrameLayout android:id="@+id/videoLayout"
+						 android:layout_width="match_parent"
+						 android:layout_height="wrap_content"
+						 android:background="@android:color/black">
+
+				<com.google.android.exoplayer2.ui.SimpleExoPlayerView
+						android:id="@+id/player_view"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						app:use_texture_view="true"
+						app:resize_mode="fit"
+						app:use_controller="false"/>
+
+			</FrameLayout>
 
 			<TextView
 					android:id="@+id/venueNameTextView"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="6dp"
 					android:fontFamily="sans-serif-black"
 					android:text="Workshop coffee San Fransisco!"
 					android:textColor="@android:color/white"
 					android:textSize="30sp"/>
 
 			<TextView
-					android:id="@+id/txv_venue_dsc"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="12dp"
-					android:textColor="#444"/>
+					android:fontFamily="sans-serif"
+					android:text="Workshop coffee San Fransisco! Workshop coffee San Fransisco! Workshop coffee San Fransisco! Workshop coffee San Fransisco! Workshop coffee San Fransisco! Workshop coffee San Fransisco! Workshop coffee San Fransisco!"
+					android:textColor="@android:color/white"
+					android:textSize="30sp"/>
 
+		</LinearLayout>
 
-		</android.support.percent.PercentRelativeLayout>
+	</android.support.v4.widget.NestedScrollView>
 
-</FrameLayout>
+	<FrameLayout
+			android:id="@+id/bottom_sheet"
+			android:layout_width="match_parent"
+			android:layout_height="70dp"
+			android:elevation="10dp"
+			android:background="@android:color/white"
+			app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+		<TextView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:text="Lorem ipsum"
+				android:padding="16dp"
+				android:textSize="16sp"/>
+
+	</FrameLayout>
+
+</android.support.design.widget.CoordinatorLayout>

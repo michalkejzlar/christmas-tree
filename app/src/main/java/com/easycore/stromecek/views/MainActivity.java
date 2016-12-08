@@ -12,7 +12,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.easycore.stromecek.R;
 import com.easycore.stromecek.model.SanitaryPlace;
-import com.itsronald.widget.ViewPagerIndicator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     protected Toolbar toolbar;
     @BindView(R.id.viewPager)
     protected ViewPager viewPager;
-    @BindView(R.id.titles)
-    protected ViewPagerIndicator pagerIndicator;
+//    @BindView(R.id.titles)
+//    protected ViewPagerIndicator pagerIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
