@@ -32,7 +32,7 @@
 		</receiver>
 
 		<service
-				android:name=".utils.WebsiteScrapperService"
+				android:name=".WebsiteScrapperService"
 				android:exported="false">
 		</service>
 	</application>

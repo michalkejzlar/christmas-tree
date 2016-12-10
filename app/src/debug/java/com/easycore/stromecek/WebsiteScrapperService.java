@@ -1,10 +1,9 @@
-package com.easycore.stromecek.utils;
+package com.easycore.stromecek;
 
 import android.app.IntentService;
 import android.content.Intent;
 import android.os.Environment;
 import android.util.Log;
-import com.easycore.stromecek.BuildConfig;
 import com.easycore.stromecek.model.Donation;
 import com.easycore.stromecek.model.DonationsDb;
 import org.jsoup.Jsoup;
