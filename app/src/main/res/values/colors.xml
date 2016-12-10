@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#F44336</color>
+    <color name="colorPrimary">#c5075a</color>
     <color name="colorPrimaryDark">#B71C1C</color>
     <color name="colorAccent">#40c4ff</color>
 
     <color name="colorTabSelected">#3F51B5</color>
     <color name="colorTabUnselected">#AA3F51B5</color>
     <color name="black_overlay">#66000000</color>
-    <color name="background_light">#fff</color>
+
+    <color name="background_color">@android:color/white</color>
+    <color name="background_light">#eee</color>
 
     <color name="ripple_light">#99ffffff</color>
     <color name="ripple_dark">@color/mid_grey</color>
@@ -20,5 +22,12 @@
     <color name="content_placeholder">#ffe0e0e0</color>
     <color name="availabilityOpened">#45b32f</color>
     <color name="availabilityClosed">#dc3347</color>
-    <color name="dark_icon">#99000000</color> <!-- 60% black-->
+    <color name="dark_icon">#99000000</color>
+    <color name="primary_text_material_light">#ffffff</color> <!-- 60% black-->
+
+    <color name="tree_red">#f00</color>
+    <color name="tree_green">#0f0</color>
+    <color name="tree_blue">#00f</color>
+    <color name="tree_yellow">#ff0</color>
+
 </resources>

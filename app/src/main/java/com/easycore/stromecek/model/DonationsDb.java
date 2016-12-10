@@ -56,7 +56,7 @@ public class DonationsDb extends SQLiteOpenHelper {
         try {
             insertDefaultValues(db);
         } catch (IOException e) {
-            // TODO: 10/12/16 log and recover 
+            // TODO: 10/12/16 log and recover
             e.printStackTrace();
         }
     }

@@ -34,7 +34,6 @@ import com.google.android.exoplayer2.trackselection.AdaptiveVideoTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.*;
 import com.google.android.exoplayer2.util.Util;
 
@@ -48,8 +47,8 @@ public class SanitaryPlaceActivity extends AppCompatActivity {
     @BindView(R.id.toolbar)
     protected Toolbar toolbar;
 
-    @BindView(R.id.player_view)
-    protected SimpleExoPlayerView playerView;
+//    @BindView(R.id.player_view)
+//    protected SimpleExoPlayerView playerView;
 
     private ProgressDialog progressDialog;
 
@@ -95,11 +94,11 @@ public class SanitaryPlaceActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if (playerView.getPlayer() == null) {
-            setupHLS();
-        } else {
-            playerView.getPlayer().setPlayWhenReady(true);
-        }
+//        if (playerView.getPlayer() == null) {
+//            setupHLS();
+//        } else {
+//            playerView.getPlayer().setPlayWhenReady(true);
+//        }
 
 
         final IntentFilter filter = new IntentFilter("android.provider.Telephony.SMS_RECEIVED");
@@ -128,13 +127,13 @@ public class SanitaryPlaceActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        playerView.getPlayer().setPlayWhenReady(false);
+//        playerView.getPlayer().setPlayWhenReady(false);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        playerView.getPlayer().release();
+//        playerView.getPlayer().release();
     }
 
     @Override
@@ -261,8 +260,8 @@ public class SanitaryPlaceActivity extends AppCompatActivity {
         final SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(this, trackSelector, loadControl);
 
         // Bind the player to the view.
-        playerView.setUseController(false);
-        playerView.setPlayer(player);
+//        playerView.setUseController(false);
+//        playerView.setPlayer(player);
 
         final DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this, Util.getUserAgent(this,
                 BuildConfig.APPLICATION_ID));
@@ -291,7 +290,7 @@ public class SanitaryPlaceActivity extends AppCompatActivity {
         SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(this, trackSelector, loadControl);
 
         // Bind the player to the view.
-        playerView.setPlayer(player);
+//        playerView.setPlayer(player);
 
         player.setPlayWhenReady(true);
 

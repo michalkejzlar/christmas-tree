@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  xmlns:app="http://schemas.android.com/apk/res-auto"
+			  xmlns:tools="http://schemas.android.com/tools"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  android:orientation="vertical">
+
+	<FrameLayout android:id="@+id/videoLayout"
+				 android:layout_width="match_parent"
+				 android:layout_height="wrap_content"
+				 android:background="@android:color/black">
+
+		<!--<com.google.android.exoplayer2.ui.SimpleExoPlayerView-->
+				<!--android:id="@+id/player_view"-->
+				<!--android:layout_width="match_parent"-->
+				<!--android:layout_height="match_parent"-->
+				<!--android:focusable="false"-->
+				<!--app:use_texture_view="true"-->
+				<!--app:resize_mode="fit"-->
+				<!--app:use_controller="false"/>-->
+
+	</FrameLayout>
+
+
+	<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textSize="16sp"
+			android:paddingLeft="@dimen/activity_horizontal_margin"
+			android:paddingRight="@dimen/activity_horizontal_margin"
+			android:layout_marginTop="12dp"
+			android:text="@string/project_label"/>
+
+	<TextView
+			android:id="@+id/projectName"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingLeft="@dimen/activity_horizontal_margin"
+			android:paddingRight="@dimen/activity_horizontal_margin"
+			android:layout_marginTop="6dp"
+			android:fontFamily="sans-serif-black"
+			tools:text="Adopce nablízko"
+			android:textColor="#444"
+			android:textSize="30sp"/>
+
+	<TextView
+			android:id="@+id/projectDesc"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingLeft="@dimen/activity_horizontal_margin"
+			android:paddingRight="@dimen/activity_horizontal_margin"
+			android:layout_marginTop="12dp"
+			tools:text="Tento projekt působí v rámci rozvojové pomoci. Jeho účelem je pomoci ohroženým a znevýhodněným dětem a mládeži ve světě."
+			android:textColor="#444"/>
+
+	<View android:layout_width="match_parent"
+		  android:layout_height="1px"
+		  android:paddingLeft="@dimen/activity_horizontal_margin"
+		  android:paddingRight="@dimen/activity_horizontal_margin"
+		  android:background="@color/background_light"/>
+
+	<TextView
+			android:id="@+id/companyName"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingLeft="@dimen/activity_horizontal_margin"
+			android:paddingRight="@dimen/activity_horizontal_margin"
+			android:layout_marginTop="6dp"
+			android:fontFamily="sans-serif-black"
+			tools:text="Salesiánská asociace Dona Boska, o.s."
+			android:textColor="#444"
+			android:textSize="22sp"/>
+
+	<TextView
+			android:id="@+id/companyDesc"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingLeft="@dimen/activity_horizontal_margin"
+			android:paddingRight="@dimen/activity_horizontal_margin"
+			android:layout_marginTop="12dp"
+			tools:text="Tento projekt působí v rámci rozvojové pomoci. Jeho účelem je pomoci ohroženým a znevýhodněným dětem a mládeži ve světě."
+			android:textColor="#444"/>
+
+
+</LinearLayout>

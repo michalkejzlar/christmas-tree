@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:layout_width="match_parent"
+			  android:layout_height="match_parent"
+			  android:orientation="vertical">
+
+	<View android:layout_width="match_parent"
+		  android:layout_height="1px"
+		  android:background="@color/background_light"/>
+
+	<Button android:id="@+id/bottomSheetButton"
+			android:layout_width="130dp"
+			android:layout_height="wrap_content"
+			style="?attr/borderlessButtonStyle"
+			android:minHeight="60dp"
+			android:layout_marginTop="3dp"
+			android:layout_marginBottom="5dp"
+			android:layout_gravity="end"
+			android:textSize="17sp"
+			android:textColor="@android:color/black"
+			android:text="@string/change_color"/>
+
+	<TextView android:id="@+id/redColorTxtView"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  style="@style/ColorButtons"
+			  android:drawableLeft="@drawable/circle_red"
+			  android:drawableStart="@drawable/circle_red"
+			  android:text="@string/color_red"
+			  android:src="@drawable/circle_red"/>
+
+	<TextView android:id="@+id/greenColorTxtView"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  style="@style/ColorButtons"
+			  android:drawableLeft="@drawable/circle_green"
+			  android:drawableStart="@drawable/circle_green"
+			  android:text="@string/color_green"
+			  android:src="@drawable/circle_red"/>
+
+	<TextView android:id="@+id/blueColorTxtView"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  style="@style/ColorButtons"
+			  android:drawableLeft="@drawable/circle_blue"
+			  android:drawableStart="@drawable/circle_blue"
+			  android:text="@string/color_blue"
+			  android:src="@drawable/circle_blue"/>
+
+	<TextView android:id="@+id/yellowColorTxtView"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  style="@style/ColorButtons"
+			  android:drawableLeft="@drawable/circle_yellow"
+			  android:drawableStart="@drawable/circle_yellow"
+			  android:text="@string/color_yellow"
+			  android:src="@drawable/circle_yellow"/>
+
+
+</LinearLayout>

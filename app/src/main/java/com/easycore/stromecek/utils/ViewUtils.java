@@ -16,6 +16,7 @@
 
 package com.easycore.stromecek.utils;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -32,6 +33,8 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.FloatRange;
 import android.support.annotation.NonNull;
 import android.support.v7.graphics.Palette;
+import android.text.Html;
+import android.text.Spanned;
 import android.text.TextPaint;
 import android.util.DisplayMetrics;
 import android.util.Property;
@@ -55,6 +58,15 @@ public class ViewUtils {
         int actionBarSize = TypedValue.complexToDimensionPixelSize(
                 value.data, context.getResources().getDisplayMetrics());
         return actionBarSize;
+    }
+
+    @TargetApi(24)
+    public static Spanned html(final String text) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            return Html.fromHtml(text, Html.FROM_HTML_MODE_COMPACT);
+        } else {
+            return Html.fromHtml(text);
+        }
     }
 
     /**
