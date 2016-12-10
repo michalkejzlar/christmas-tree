@@ -1,8 +1,5 @@
 package com.easycore.stromecek.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public final class Donation {
 
     private final String projectName;
@@ -10,16 +7,16 @@ public final class Donation {
     private final String companyName;
     private final String companyDesc;
     private final String picture;
-    private final List<String> SMSCodes;
+    private final String smsCode;
 
     public Donation(String projectName, String projectDesc, String companyName,
-                    String companyDesc, String picture, List<String> SMSCodes) {
+                    String companyDesc, String picture, String smsCode) {
         this.projectName = projectName;
         this.projectDesc = projectDesc;
         this.companyName = companyName;
         this.companyDesc = companyDesc;
         this.picture = picture;
-        this.SMSCodes = SMSCodes;
+        this.smsCode = smsCode;
     }
 
     @Override
@@ -28,10 +25,6 @@ public final class Donation {
                 "projectName='" + projectName + '\'' +
                 ", companyName='" + companyName + '\'' +
                 '}';
-    }
-
-    public boolean hasMultipleSMSCodes() {
-        return SMSCodes.size() > 1;
     }
 
     public String getProjectName() {
@@ -51,19 +44,11 @@ public final class Donation {
     }
 
     public String getPicture() {
-        return picture;
+        return picture == null ? "" : picture;
     }
 
-    public List<String> getSMSCodes() {
-        return SMSCodes;
-    }
-
-    public String getSMSCode() {
-        if (hasMultipleSMSCodes()) {
-            throw new IllegalArgumentException("Donation has multiple SMS codes. " +
-                    "You must pick one");
-        }
-        return SMSCodes.get(0);
+    public String getSmsCode() {
+        return smsCode;
     }
 
     public static final class Builder {
@@ -73,7 +58,7 @@ public final class Donation {
         private final StringBuilder projectDesc;
         private final StringBuilder companyDesc;
         private String picture;
-        private List<String> SMSCodes;
+        private String smsCode;
 
         public Builder() {
             this.projectDesc = new StringBuilder();
@@ -100,21 +85,16 @@ public final class Donation {
             this.picture = picture;
         }
 
-        public void setSMSCodes(List<String> SMSCodes) {
-            this.SMSCodes = SMSCodes;
-        }
-
-        public void setSMSCode(String code) {
-            this.SMSCodes = new ArrayList<>(1);
-            this.SMSCodes.add(code);
+        public void setSmsCode(String code) {
+            this.smsCode = code;
         }
 
         public Donation build() {
-            if (SMSCodes == null) {
+            if (smsCode == null) {
                 throw new IllegalArgumentException("You must set at least one SMS code");
             }
             return new Donation(projectName, projectDesc.toString(),
-                    companyName, companyDesc.toString(), picture, SMSCodes);
+                    companyName, companyDesc.toString(), picture, smsCode);
         }
     }
 }

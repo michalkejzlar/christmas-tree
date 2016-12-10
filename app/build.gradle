@@ -13,7 +13,11 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+
+        // Set to true if you want to scrape website. Proceed with caution. See class docs.
+        buildConfigField 'boolean', 'USE_SCRAPER', 'false'
     }
+
     buildTypes {
         release {
             minifyEnabled false
