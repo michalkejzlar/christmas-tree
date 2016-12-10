@@ -56,6 +56,7 @@ public class DonationsDb extends SQLiteOpenHelper {
         try {
             insertDefaultValues(db);
         } catch (IOException e) {
+            // TODO: 10/12/16 log and recover 
             e.printStackTrace();
         }
     }
@@ -88,6 +89,13 @@ public class DonationsDb extends SQLiteOpenHelper {
         return donations;
     }
 
+    /**
+     * Inserts default values into database. Values are taken from assets folder.
+     * Look for that file in project structure inside IDE.
+     * If it not exists, you must scrape dms website. {@see com.easycore.stromecek.WebsiteScrapperService}
+     * @param db Database to insert to
+     * @throws IOException
+     */
     private void insertDefaultValues(SQLiteDatabase db) throws IOException {
         InputStream is = context.getAssets().open(INSERT_FILE_NAME);
 
