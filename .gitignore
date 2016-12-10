@@ -2,5 +2,5 @@
 *.iml
 local.properties
 .gradle
-app/build/*
+app/build
 build
