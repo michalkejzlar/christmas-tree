@@ -1,5 +1,6 @@
 package com.easycore.stromecek.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,7 +12,7 @@ import android.view.MenuItem;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.easycore.stromecek.R;
-import com.easycore.stromecek.model.SanitaryPlace;
+import com.easycore.stromecek.utils.WebsiteScrapperService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
+
+        startService(new Intent(this, WebsiteScrapperService.class));
 
         assert getSupportActionBar() != null;
 
@@ -74,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     return IntroFragment.getInstance();
                 default:
-                    return StreamFragment.getInstance(new SanitaryPlace());
+                    return StreamFragment.getInstance(position);
             }
         }
 

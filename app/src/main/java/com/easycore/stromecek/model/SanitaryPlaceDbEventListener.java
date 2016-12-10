@@ -15,49 +15,13 @@ public final class SanitaryPlaceDbEventListener implements ChildEventListener {
     }
 
     public interface SanitaryEventListener {
-        void onPlaceAdded(SanitaryPlace newPlace);
-        void onPlaceChanged(SanitaryPlace changePlace);
+        void onPlaceAdded(Donation newPlace);
+        void onPlaceChanged(Donation changePlace);
     }
 
     @Override
     public void onChildAdded(final DataSnapshot dataSnapshot, String s) {
         Log.i("Venue added", dataSnapshot.toString());
-        SanitaryPlace venue = new SanitaryPlace();
-
-        if (dataSnapshot.hasChild("name")) {
-            venue.setName(dataSnapshot.child("name").getValue().toString());
-        }
-
-        if (dataSnapshot.hasChild("address")) {
-            venue.setAddress(dataSnapshot.child("address").getValue().toString());
-        }
-
-        if (dataSnapshot.hasChild("picture")) {
-            venue.setPicture(dataSnapshot.child("picture").getValue().toString());
-        }
-
-        if (dataSnapshot.hasChild("dmsNumber")) {
-            venue.setDmsNumber(dataSnapshot.child("dmsNumber").getValue().toString());
-        }
-
-        if (dataSnapshot.hasChild("dmsText")) {
-            venue.setDmsText(dataSnapshot.child("dmsText").getValue().toString());
-        }
-
-        if (dataSnapshot.hasChild("dmsCost")) {
-            venue.setDmsCost(Double.parseDouble(dataSnapshot.child("dmsCost").getValue().toString()));
-        }
-
-        if (dataSnapshot.hasChild("hls")) {
-            venue.setHls(dataSnapshot.child("hls").getValue().toString());
-        }
-
-        if (dataSnapshot.hasChild("desc")) {
-            venue.setDsc(dataSnapshot.child("desc").getValue().toString());
-        }
-
-        listener.onPlaceAdded(venue);
-
     }
 
     @Override

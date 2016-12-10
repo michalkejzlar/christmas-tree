@@ -18,7 +18,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.easycore.stromecek.BuildConfig;
 import com.easycore.stromecek.R;
-import com.easycore.stromecek.model.SanitaryPlace;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.LoadControl;
@@ -39,10 +38,10 @@ import static com.easycore.stromecek.views.SanitaryPlaceActivity.TEST_URL;
 
 public final class StreamFragment extends Fragment {
 
-    public static StreamFragment getInstance(SanitaryPlace place) {
+    public static StreamFragment getInstance(int position) {
         StreamFragment fr = new StreamFragment();
         Bundle args = new Bundle();
-        args.putParcelable("place", place);
+        args.putInt("position", position);
         fr.setArguments(args);
         return fr;
     }

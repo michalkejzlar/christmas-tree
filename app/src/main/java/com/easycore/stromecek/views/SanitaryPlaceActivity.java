@@ -1,6 +1,5 @@
 package com.easycore.stromecek.views;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
@@ -8,15 +7,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
@@ -28,7 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.easycore.stromecek.BuildConfig;
 import com.easycore.stromecek.R;
-import com.easycore.stromecek.model.SanitaryPlace;
+import com.easycore.stromecek.model.Donation;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.LoadControl;
@@ -59,7 +53,7 @@ public class SanitaryPlaceActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
 
-    private SanitaryPlace place;
+    private Donation place;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,36 +147,36 @@ public class SanitaryPlaceActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void checkPermissionAndSendSMS() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            sendSMS(place.getDmsNumber(), place.getDmsText());
-            return;
-        }
-
-        final int status = ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS);
-
-        if (PackageManager.PERMISSION_GRANTED == status) {
-            sendSMS(place.getDmsNumber(), place.getDmsText());
-        } else {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
-                Snackbar.make(findViewById(android.R.id.content), R.string.sms_permissions_needed,
-                        Snackbar.LENGTH_INDEFINITE)
-                        .setAction(android.R.string.ok, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                requestSMSPermissions();
-                            }
-                        }).show();
-            } else {
-                requestSMSPermissions();
-            }
-        }
-    }
-
-    private void requestSMSPermissions() {
-        ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.SEND_SMS}, REQUEST_PERMISSIONS_SMS);
-    }
+//    private void checkPermissionAndSendSMS() {
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+//            sendSMS(place.getDmsNumber(), place.getDmsText());
+//            return;
+//        }
+//
+//        final int status = ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS);
+//
+//        if (PackageManager.PERMISSION_GRANTED == status) {
+//            sendSMS(place.getDmsNumber(), place.getDmsText());
+//        } else {
+//            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
+//                Snackbar.make(findViewById(android.R.id.content), R.string.sms_permissions_needed,
+//                        Snackbar.LENGTH_INDEFINITE)
+//                        .setAction(android.R.string.ok, new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                requestSMSPermissions();
+//                            }
+//                        }).show();
+//            } else {
+//                requestSMSPermissions();
+//            }
+//        }
+//    }
+//
+//    private void requestSMSPermissions() {
+//        ActivityCompat.requestPermissions(this,
+//                new String[]{Manifest.permission.SEND_SMS}, REQUEST_PERMISSIONS_SMS);
+//    }
 
     private void sendSMS(String phoneNumber, String message) {
         progressDialog = ProgressDialog.show(SanitaryPlaceActivity.this, null,
