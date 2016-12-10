@@ -79,9 +79,10 @@ public final class WebsiteScrapperService extends IntentService {
 
             // quite dangerous, but #yolo
             final String href = columns.get(0).child(0).attr("href");
+            final String SMSCode = columns.get(2).text();
 
             try {
-                Donation donation = parseDonation(href);
+                Donation donation = parseDonation(SMSCode, href);
                 donations.add(donation);
             } catch (IOException | RuntimeException e) {
                 // skip corrupted donation
@@ -92,7 +93,7 @@ public final class WebsiteScrapperService extends IntentService {
         return donations;
     }
 
-    private Donation parseDonation(final String href) throws IOException, RuntimeException {
+    private Donation parseDonation(final String code, final String href) throws IOException, RuntimeException {
         final Donation.Builder builder = new Donation.Builder();
         final Document doc = Jsoup.connect(WEBSITE_URL + href).get();
         final Element body = doc.body();
@@ -124,6 +125,8 @@ public final class WebsiteScrapperService extends IntentService {
                 break;
             }
         }
+
+        builder.setSMSCode(code);
 
         if (companyInfoStartPos == 0) {
             // no company info
