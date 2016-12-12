@@ -82,6 +82,7 @@ public class ViewUtils {
         return(!canMove || dm.widthPixels < dm.heightPixels);
     }
 
+    @TargetApi(21)
     public static RippleDrawable createRipple(@ColorInt int color,
                                               @FloatRange(from = 0f, to = 1f) float alpha,
                                               boolean bounded) {
@@ -90,6 +91,7 @@ public class ViewUtils {
                 bounded ? new ColorDrawable(Color.WHITE) : null);
     }
 
+    @TargetApi(21)
     public static RippleDrawable createRipple(@NonNull Palette palette,
                                               @FloatRange(from = 0f, to = 1f) float darkAlpha,
                                               @FloatRange(from = 0f, to = 1f) float lightAlpha,
@@ -217,55 +219,6 @@ public class ViewUtils {
         }
     });
 
-    public static final Property<TextView, Integer> TEXT_COLOR
-            = AnimUtils.createIntProperty(new AnimUtils.IntProp<TextView>("textColor") {
-        @Override
-        public void set(TextView textView, int textColor) {
-            textView.setTextColor(textColor);
-        }
-
-        @Override
-        public int get(TextView textView) {
-            return textView.getCurrentTextColor();
-        }
-    });
-
-    public static final Property<Drawable, Integer> DRAWABLE_ALPHA
-            = AnimUtils.createIntProperty(new AnimUtils.IntProp<Drawable>("alpha") {
-        @Override
-        public void set(Drawable drawable, int alpha) {
-            drawable.setAlpha(alpha);
-        }
-
-        @Override
-        public int get(Drawable drawable) {
-            return drawable.getAlpha();
-        }
-    });
-
-    public static final Property<ImageView, Integer> IMAGE_ALPHA
-            = AnimUtils.createIntProperty(new AnimUtils.IntProp<ImageView>("imageAlpha") {
-        @Override
-        public void set(ImageView imageView, int alpha) {
-            imageView.setImageAlpha(alpha);
-        }
-
-        @Override
-        public int get(ImageView imageView) {
-            return imageView.getImageAlpha();
-        }
-    });
-
-    public static final ViewOutlineProvider CIRCULAR_OUTLINE = new ViewOutlineProvider() {
-        @Override
-        public void getOutline(View view, Outline outline) {
-            outline.setOval(view.getPaddingLeft(),
-                    view.getPaddingTop(),
-                    view.getWidth() - view.getPaddingRight(),
-                    view.getHeight() - view.getPaddingBottom());
-        }
-    };
-
     /**
      * Determines if two views intersect in the window.
      */
@@ -287,6 +240,7 @@ public class ViewUtils {
         return view1Rect.intersect(view2Rect);
     }
 
+    @TargetApi(17)
     public static void setPaddingStart(View view, int paddingStart) {
         view.setPaddingRelative(paddingStart,
                 view.getPaddingTop(),
@@ -294,6 +248,7 @@ public class ViewUtils {
                 view.getPaddingBottom());
     }
 
+    @TargetApi(17)
     public static void setPaddingTop(View view, int paddingTop) {
         view.setPaddingRelative(view.getPaddingStart(),
                 paddingTop,
@@ -301,6 +256,7 @@ public class ViewUtils {
                 view.getPaddingBottom());
     }
 
+    @TargetApi(17)
     public static void setPaddingEnd(View view, int paddingEnd) {
         view.setPaddingRelative(view.getPaddingStart(),
                 view.getPaddingTop(),
@@ -308,6 +264,7 @@ public class ViewUtils {
                 view.getPaddingBottom());
     }
 
+    @TargetApi(17)
     public static void setPaddingBottom(View view, int paddingBottom) {
         view.setPaddingRelative(view.getPaddingStart(),
                 view.getPaddingTop(),

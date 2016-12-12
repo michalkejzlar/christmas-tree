@@ -1,22 +1,23 @@
 package com.easycore.stromecek.views;
 
 
-import android.graphics.Color;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.graphics.Point;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.ShapeDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
+import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -41,6 +42,7 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import io.codetail.animation.ViewAnimationUtils;
 
 import java.util.List;
 import java.util.Random;
@@ -64,8 +66,8 @@ public final class StreamFragment extends Fragment {
     protected FrameLayout videoLayout;
 //    @BindView(R.id.player_view)
 //    protected SimpleExoPlayerView playerView;
-    @BindView(R.id.bottom_sheet)
-    protected FrameLayout bottomSheet;
+    @BindView(R.id.content_bottom_sheet)
+    protected MyRevealFrameLayout bottomSheetLayout;
 
     @BindView(R.id.projectName)
     protected TextView projectNameTxtView;
@@ -92,6 +94,7 @@ public final class StreamFragment extends Fragment {
         display.getSize(size);
         videoLayout.getLayoutParams().height = (int) (size.y * 0.85f);
 
+        setupBottomSheet((NestedScrollView) view.findViewById(R.id.bottom_sheet));
         return view;
     }
 
@@ -99,8 +102,7 @@ public final class StreamFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 //        setupVideoPlayer();
-
-        setupBottomSheet();
+        loadDonationProject();
 
         scrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
@@ -113,42 +115,6 @@ public final class StreamFragment extends Fragment {
             }
         });
 
-        loadDonationProject();
-
-    }
-
-    private void setupBottomSheet() {
-        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
-        bottomSheetBehavior.setPeekHeight(getResources().getDimensionPixelSize(R.dimen.bottom_sheet_peek_height));
-        bottomSheetBehavior.setHideable(true);
-        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
-
-                } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-
-                }
-            }
-
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
-            }
-        });
-
-        ShapeDrawable dr = new ShapeDrawable();
-        dr.setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-    }
-
-    @OnClick(R.id.bottomSheetButton)
-    public void slideUpBottomSheet() {
-        if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
-            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        } else {
-            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-        }
     }
 
     @Override
@@ -176,6 +142,94 @@ public final class StreamFragment extends Fragment {
         super.onDestroy();
 //        playerView.getPlayer().release();
     }
+
+    private void setupBottomSheet(NestedScrollView bottomSheet) {
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
+        bottomSheetBehavior.setPeekHeight(getResources().getDimensionPixelSize(R.dimen.bottom_sheet_peek_height));
+        bottomSheetBehavior.setHideable(true);
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+    }
+
+    private void createCircularReveal(final View view, final int color) {
+        int cx;
+        int cy;
+        final Point lastTouch = bottomSheetLayout.getLastTouchPoint();
+
+        if (lastTouch == null) {
+            // get the center for the clipping circle
+            cx = (view.getLeft() + view.getRight()) / 2;
+            cy = (view.getTop() + view.getBottom()) / 2;
+        } else {
+            cx = lastTouch.x;
+            cy = lastTouch.y;
+        }
+
+        // get the final radius for the clipping circle
+        int dx = Math.max(cx, view.getWidth() - cx);
+        int dy = Math.max(cy, view.getHeight() - cy);
+        float finalRadius = (float) Math.hypot(dx, dy);
+
+        view.setVisibility(View.VISIBLE);
+        view.setBackgroundColor(color);
+        // Android native animator
+        final Animator animator =
+                ViewAnimationUtils.createCircularReveal(view, cx, cy, 0, finalRadius);
+        animator.setInterpolator(new AccelerateDecelerateInterpolator());
+        animator.setDuration(250);
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                view.setVisibility(View.INVISIBLE);
+                if (getView() == null) {
+                    return;
+                }
+                bottomSheetLayout.setBackgroundColor(color);
+                animator.removeAllListeners();
+
+            }
+        });
+        animator.start();
+    }
+
+    @OnClick(R.id.bottomSheetButton)
+    public void slideUpBottomSheet() {
+        if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
+            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        } else {
+            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+        }
+    }
+
+    @OnClick({R.id.redColorTxtView, R.id.greenColorTxtView, R.id.blueColorTxtView, R.id.yellowColorTxtView})
+    public void onColorClicked(View button) {
+        if (getView() == null) {
+            return;
+        }
+        final View view = getView().findViewById(R.id.revealView);
+
+        int colorResId;
+        switch (button.getId()) {
+            case R.id.redColorTxtView:
+                colorResId = R.color.tree_red;
+                break;
+            case R.id.greenColorTxtView:
+                colorResId = R.color.tree_green;
+                break;
+            case R.id.blueColorTxtView:
+                colorResId = R.color.tree_blue;
+                break;
+            case R.id.yellowColorTxtView:
+                colorResId = R.color.tree_yellow;
+                break;
+            default:
+                throw new IllegalArgumentException("Undefined color clicked.");
+        }
+
+        @ColorInt int color = ContextCompat.getColor(getActivity(), colorResId);
+        createCircularReveal(view, color);
+    }
+
+
 
     private void loadDonationProject() {
         final DonationsDb db = new DonationsDb(getActivity());

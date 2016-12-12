@@ -5,14 +5,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.easycore.stromecek.R;
+import com.easycore.stromecek.model.LightRequest;
+import com.easycore.stromecek.utils.FirebaseDatabaseEventAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends SmsSenderActivity {
 
     @BindView(R.id.toolbar)
     protected Toolbar toolbar;
@@ -20,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected ViewPager viewPager;
 //    @BindView(R.id.titles)
 //    protected ViewPagerIndicator pagerIndicator;
+
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,25 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("request");
+
+        databaseReference.addChildEventListener(new FirebaseDatabaseEventAdapter() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+        });
+
+        final LightRequest request = LightRequest.createUndefined();
+
+        databaseReference.push().setValue(request);
     }
 
     @Override
