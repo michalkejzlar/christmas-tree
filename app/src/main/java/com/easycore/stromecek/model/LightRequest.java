@@ -19,14 +19,14 @@ public final class LightRequest {
 
     private final String color;
     private final String colorType;
-    private final String createdAt;
-    private final String displayedAt;
+    private final String created;
+    private final String displayed;
 
-    private LightRequest(String color, @ColorType String colorType, String createdAt, String displayedAt) {
+    private LightRequest(String color, @ColorType String colorType, String created, String displayed) {
         this.color = color;
         this.colorType = colorType;
-        this.createdAt = createdAt;
-        this.displayedAt = displayedAt;
+        this.created = created;
+        this.displayed = displayed;
     }
 
     public String getColor() {
@@ -38,12 +38,12 @@ public final class LightRequest {
         return colorType;
     }
 
-    public String getCreatedAt() {
-        return createdAt;
+    public String getCreated() {
+        return created;
     }
 
-    public String getDisplayedAt() {
-        return displayedAt;
+    public String getDisplayed() {
+        return displayed;
     }
 
     public static LightRequest create(final int color, @ColorType final String colorType) {
