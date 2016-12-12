@@ -20,18 +20,14 @@
 			  android:background="@color/background_light"/>
 
 		<TextView android:id="@+id/bottomSheetButton"
-				  android:clickable="true"
 				  android:layout_width="match_parent"
 				  android:layout_height="wrap_content"
+				  style="@style/ClickableTextViewStyle"
 				  android:minHeight="60dp"
 				  android:layout_marginTop="3dp"
 				  android:layout_marginBottom="5dp"
 				  android:padding="@dimen/activity_horizontal_margin"
-				  android:fontFamily="sans-serif-condensed"
 				  android:gravity="end"
-				  android:textStyle="bold"
-				  android:textSize="18sp"
-				  android:textColor="@android:color/white"
 				  tools:textColor="@android:color/black"
 				  android:text="@string/color_question"/>
 
@@ -74,6 +70,16 @@
 				  android:drawableStart="@drawable/circle_yellow"
 				  android:text="@string/color_yellow"
 				  android:src="@drawable/circle_yellow"/>
+
+		<TextView android:id="@+id/submitButton"
+				  android:layout_width="match_parent"
+				  android:layout_height="wrap_content"
+				  android:minHeight="70dp"
+				  style="@style/ClickableTextViewStyle"
+				  android:background="#22000000"
+				  android:gravity="center"
+				  tools:textColor="@android:color/black"
+				  android:text="@string/change_color"/>
 	</LinearLayout>
 
 

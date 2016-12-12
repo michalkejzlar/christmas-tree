@@ -24,7 +24,8 @@
 	<android.support.v4.widget.NestedScrollView
 			android:id="@+id/bottom_sheet"
 			android:layout_width="match_parent"
-			android:layout_height="@dimen/bottom_sheet_height"
+			android:layout_height="wrap_content"
+			android:minHeight="@dimen/bottom_sheet_height"
 			android:background="@color/background_color"
 			app:elevation="10dp"
 			android:elevation="10dp"

@@ -29,7 +29,7 @@ public class MainActivity extends SmsSenderActivity {
 //    @BindView(R.id.titles)
 //    protected ViewPagerIndicator pagerIndicator;
 
-    private DatabaseReference databaseReference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,24 +47,6 @@ public class MainActivity extends SmsSenderActivity {
 
         viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager(), getStartingColor()));
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("request");
-
-        databaseReference.addChildEventListener(new FirebaseDatabaseEventAdapter() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-        });
-
-        final LightRequest request = LightRequest.createUndefined();
-
-        databaseReference.push().setValue(request);
     }
 
     @Override
@@ -86,6 +68,27 @@ public class MainActivity extends SmsSenderActivity {
             return;
         }
         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1, true);
+    }
+
+    void lightChristmasTree() {
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("request");
+
+        databaseReference.addChildEventListener(new FirebaseDatabaseEventAdapter() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+        });
+
+        final LightRequest request = LightRequest.createUndefined();
+
+        databaseReference.push().setValue(request);
     }
 
     private int getStartingColor() {

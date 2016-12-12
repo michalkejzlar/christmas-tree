@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -235,6 +236,13 @@ public final class StreamFragment extends Fragment {
 
         @ColorInt int color = ContextCompat.getColor(getActivity(), colorResId);
         createCircularReveal(view, color);
+    }
+
+    @OnClick(R.id.submitButton)
+    void lightChristmasTree() {
+        // TODO: 12/12/16 Send SMS
+        ((MainActivity) getActivity()).lightChristmasTree();
+        Toast.makeText(getActivity(), R.string.thank_you, Toast.LENGTH_SHORT).show();
     }
 
 
