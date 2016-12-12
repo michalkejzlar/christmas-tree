@@ -2,9 +2,9 @@
 <android.support.percent.PercentRelativeLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:background="@color/colorPrimary">
+		android:layout_height="match_parent">
 
 	<TextView android:id="@+id/sanitaryPlaceTextView"
 			  android:layout_width="wrap_content"
@@ -15,6 +15,7 @@
 			  android:textSize="34sp"
 			  android:fontFamily="sans-serif-black"
 			  android:textColor="@android:color/white"
+			  tools:textColor="@android:color/black"
 			  android:text="@string/intro_text"/>
 
 	<ImageButton

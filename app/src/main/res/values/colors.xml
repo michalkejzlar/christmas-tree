@@ -30,4 +30,9 @@
     <color name="tree_blue">#00f</color>
     <color name="tree_yellow">#ff0</color>
 
+    <color name="tree_material_red">#FFB71C38</color>
+    <color name="tree_material_green">#FF00C853</color>
+    <color name="tree_material_blue">#FF0097A7</color>
+    <color name="tree_material_yellow">#FFFBC02D</color>
+
 </resources>

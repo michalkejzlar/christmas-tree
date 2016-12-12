@@ -14,8 +14,12 @@ import com.easycore.stromecek.R;
 
 public class IntroFragment extends Fragment {
 
-    public static IntroFragment getInstance() {
-        return new IntroFragment();
+    public static IntroFragment getInstance(int backgroundColor) {
+        IntroFragment fr = new IntroFragment();
+        Bundle args = new Bundle();
+        args.putInt("backgroundColor", backgroundColor);
+        fr.setArguments(args);
+        return fr;
     }
 
     @Override
@@ -28,11 +32,20 @@ public class IntroFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() == null || getArguments().getInt("backgroundColor", -1) == -1) {
+            throw new IllegalArgumentException("You must start this fragment by it's starter methods.");
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_intro, container, false);
         ButterKnife.bind(this, view);
+        view.setBackgroundColor(getArguments().getInt("backgroundColor"));
         return view;
     }
 

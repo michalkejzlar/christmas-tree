@@ -2,6 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
 	   android:shape="oval">
 	<size android:width="40dp" android:height="40dp"/>
-	<solid android:color="@color/tree_green"/>
+	<solid android:color="@color/tree_material_green"/>
+	<stroke android:color="@android:color/white" android:width="1dp"/>
 
 </shape>

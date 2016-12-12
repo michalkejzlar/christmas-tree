@@ -52,10 +52,10 @@ import static com.easycore.stromecek.views.SanitaryPlaceActivity.TEST_URL;
 
 public final class StreamFragment extends Fragment {
 
-    public static StreamFragment getInstance(int position) {
+    public static StreamFragment getInstance(int backgroundColor) {
         StreamFragment fr = new StreamFragment();
         Bundle args = new Bundle();
-        args.putInt("position", position);
+        args.putInt("backgroundColor", backgroundColor);
         fr.setArguments(args);
         return fr;
     }
@@ -82,6 +82,14 @@ public final class StreamFragment extends Fragment {
 
     private BottomSheetBehavior bottomSheetBehavior;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() == null || getArguments().getInt("backgroundColor", -1) == -1) {
+            throw new IllegalArgumentException("You must start this fragment by it's starter methods.");
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -95,6 +103,7 @@ public final class StreamFragment extends Fragment {
         videoLayout.getLayoutParams().height = (int) (size.y * 0.85f);
 
         setupBottomSheet((NestedScrollView) view.findViewById(R.id.bottom_sheet));
+        bottomSheetLayout.setBackgroundColor(getArguments().getInt("backgroundColor"));
         return view;
     }
 
@@ -210,16 +219,16 @@ public final class StreamFragment extends Fragment {
         int colorResId;
         switch (button.getId()) {
             case R.id.redColorTxtView:
-                colorResId = R.color.tree_red;
+                colorResId = R.color.tree_material_red;
                 break;
             case R.id.greenColorTxtView:
-                colorResId = R.color.tree_green;
+                colorResId = R.color.tree_material_green;
                 break;
             case R.id.blueColorTxtView:
-                colorResId = R.color.tree_blue;
+                colorResId = R.color.tree_material_blue;
                 break;
             case R.id.yellowColorTxtView:
-                colorResId = R.color.tree_yellow;
+                colorResId = R.color.tree_material_yellow;
                 break;
             default:
                 throw new IllegalArgumentException("Undefined color clicked.");
@@ -228,7 +237,6 @@ public final class StreamFragment extends Fragment {
         @ColorInt int color = ContextCompat.getColor(getActivity(), colorResId);
         createCircularReveal(view, color);
     }
-
 
 
     private void loadDonationProject() {
