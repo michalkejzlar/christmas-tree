@@ -7,11 +7,9 @@ import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -26,6 +24,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.easycore.stromecek.BuildConfig;
 import com.easycore.stromecek.R;
+import com.easycore.stromecek.model.ChristmasColor;
 import com.easycore.stromecek.model.Donation;
 import com.easycore.stromecek.model.DonationsDb;
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -52,10 +51,10 @@ import static com.easycore.stromecek.views.SanitaryPlaceActivity.TEST_URL;
 
 public final class StreamFragment extends Fragment {
 
-    public static StreamFragment getInstance(int backgroundColor) {
+    public static StreamFragment getInstance(ChristmasColor backgroundColor) {
         StreamFragment fr = new StreamFragment();
         Bundle args = new Bundle();
-        args.putInt("backgroundColor", backgroundColor);
+        args.putParcelable("backgroundColor", backgroundColor);
         fr.setArguments(args);
         return fr;
     }
@@ -81,12 +80,19 @@ public final class StreamFragment extends Fragment {
     protected TextView bottomSheetButton;
 
     private BottomSheetBehavior bottomSheetBehavior;
+    private ChristmasColor christmasColor;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() == null || getArguments().getInt("backgroundColor", -1) == -1) {
-            throw new IllegalArgumentException("You must start this fragment by it's starter methods.");
+
+        if (savedInstanceState == null) {
+            if (getArguments() == null || getArguments().getParcelable("backgroundColor") == null) {
+                throw new IllegalArgumentException("You must start this fragment by it's starter methods.");
+            }
+            christmasColor = getArguments().getParcelable("backgroundColor");
+        } else {
+            christmasColor = savedInstanceState.getParcelable("backgroundColor");
         }
     }
 
@@ -103,7 +109,7 @@ public final class StreamFragment extends Fragment {
         videoLayout.getLayoutParams().height = (int) (size.y * 0.85f);
 
         setupBottomSheet((NestedScrollView) view.findViewById(R.id.bottom_sheet));
-        bottomSheetLayout.setBackgroundColor(getArguments().getInt("backgroundColor"));
+        bottomSheetLayout.setBackgroundColor(christmasColor.getMaterialColor());
         return view;
     }
 
@@ -123,7 +129,6 @@ public final class StreamFragment extends Fragment {
                 }
             }
         });
-
     }
 
     @Override
@@ -147,6 +152,12 @@ public final class StreamFragment extends Fragment {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable("backgroundColor", christmasColor);
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
 //        playerView.getPlayer().release();
@@ -159,7 +170,7 @@ public final class StreamFragment extends Fragment {
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
     }
 
-    private void createCircularReveal(final View view, final int color) {
+    private void createCircularReveal(final View view) {
         int cx;
         int cy;
         final Point lastTouch = bottomSheetLayout.getLastTouchPoint();
@@ -179,7 +190,7 @@ public final class StreamFragment extends Fragment {
         float finalRadius = (float) Math.hypot(dx, dy);
 
         view.setVisibility(View.VISIBLE);
-        view.setBackgroundColor(color);
+        view.setBackgroundColor(christmasColor.getMaterialColor());
         // Android native animator
         final Animator animator =
                 ViewAnimationUtils.createCircularReveal(view, cx, cy, 0, finalRadius);
@@ -192,7 +203,7 @@ public final class StreamFragment extends Fragment {
                 if (getView() == null) {
                     return;
                 }
-                bottomSheetLayout.setBackgroundColor(color);
+                bottomSheetLayout.setBackgroundColor(christmasColor.getMaterialColor());
                 animator.removeAllListeners();
 
             }
@@ -219,29 +230,27 @@ public final class StreamFragment extends Fragment {
         int colorResId;
         switch (button.getId()) {
             case R.id.redColorTxtView:
-                colorResId = R.color.tree_material_red;
+                christmasColor = ChristmasColor.red(getContext());
                 break;
             case R.id.greenColorTxtView:
-                colorResId = R.color.tree_material_green;
+                christmasColor = ChristmasColor.green(getContext());
                 break;
             case R.id.blueColorTxtView:
-                colorResId = R.color.tree_material_blue;
+                christmasColor = ChristmasColor.blue(getContext());
                 break;
             case R.id.yellowColorTxtView:
-                colorResId = R.color.tree_material_yellow;
+                christmasColor = ChristmasColor.yellow(getContext());
                 break;
             default:
                 throw new IllegalArgumentException("Undefined color clicked.");
         }
-
-        @ColorInt int color = ContextCompat.getColor(getActivity(), colorResId);
-        createCircularReveal(view, color);
+        createCircularReveal(view);
     }
 
     @OnClick(R.id.submitButton)
     void lightChristmasTree() {
         // TODO: 12/12/16 Send SMS
-        ((MainActivity) getActivity()).lightChristmasTree();
+        ((MainActivity) getActivity()).lightChristmasTree(christmasColor);
         Toast.makeText(getActivity(), R.string.thank_you, Toast.LENGTH_SHORT).show();
     }
 

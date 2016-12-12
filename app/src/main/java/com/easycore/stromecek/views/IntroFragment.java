@@ -11,13 +11,14 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.easycore.stromecek.R;
+import com.easycore.stromecek.model.ChristmasColor;
 
 public class IntroFragment extends Fragment {
 
-    public static IntroFragment getInstance(int backgroundColor) {
+    public static IntroFragment getInstance(final ChristmasColor backgroundColor) {
         IntroFragment fr = new IntroFragment();
         Bundle args = new Bundle();
-        args.putInt("backgroundColor", backgroundColor);
+        args.putParcelable("backgroundColor", backgroundColor);
         fr.setArguments(args);
         return fr;
     }
@@ -35,7 +36,7 @@ public class IntroFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() == null || getArguments().getInt("backgroundColor", -1) == -1) {
+        if (getArguments() == null || getArguments().getParcelable("backgroundColor") == null) {
             throw new IllegalArgumentException("You must start this fragment by it's starter methods.");
         }
     }
@@ -45,7 +46,9 @@ public class IntroFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_intro, container, false);
         ButterKnife.bind(this, view);
-        view.setBackgroundColor(getArguments().getInt("backgroundColor"));
+        ChristmasColor color = getArguments().getParcelable("backgroundColor");
+        assert color != null; // check earlier in onCreate()
+        view.setBackgroundColor(color.getMaterialColor());
         return view;
     }
 

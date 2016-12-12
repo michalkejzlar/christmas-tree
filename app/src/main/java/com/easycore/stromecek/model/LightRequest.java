@@ -13,9 +13,9 @@ public final class LightRequest {
 
     @Retention(RetentionPolicy.SOURCE)
     @StringDef({TYPE_DEFINED, TYPE_UNDEFINED})
-    private @interface ColorType{}
-    private static final String TYPE_DEFINED = "defined";
-    private static final String TYPE_UNDEFINED = "undefined";
+    public @interface ColorType{}
+    public static final String TYPE_DEFINED = "defined";
+    public static final String TYPE_UNDEFINED = "undefined";
 
     private final String color;
     private final String colorType;
@@ -44,6 +44,10 @@ public final class LightRequest {
 
     public String getDisplayedAt() {
         return displayedAt;
+    }
+
+    public static LightRequest create(final int color, @ColorType final String colorType) {
+        return create(String.format("#%06X", 0xFFFFFF & color), colorType);
     }
 
     /**

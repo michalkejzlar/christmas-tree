@@ -1,24 +1,21 @@
 package com.easycore.stromecek.views;
 
 import android.os.Bundle;
-import android.support.annotation.ColorRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.easycore.stromecek.R;
+import com.easycore.stromecek.model.ChristmasColor;
 import com.easycore.stromecek.model.LightRequest;
 import com.easycore.stromecek.utils.FirebaseDatabaseEventAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Random;
 
 public class MainActivity extends SmsSenderActivity {
 
@@ -45,7 +42,7 @@ public class MainActivity extends SmsSenderActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager(), getStartingColor()));
+        viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager(), ChristmasColor.random(this)));
 
     }
 
@@ -70,7 +67,7 @@ public class MainActivity extends SmsSenderActivity {
         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1, true);
     }
 
-    void lightChristmasTree() {
+    void lightChristmasTree(final ChristmasColor color) {
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("request");
 
         databaseReference.addChildEventListener(new FirebaseDatabaseEventAdapter() {
@@ -86,24 +83,17 @@ public class MainActivity extends SmsSenderActivity {
 
         });
 
-        final LightRequest request = LightRequest.createUndefined();
+        final LightRequest request = LightRequest.create(color.getTreeColor(), LightRequest.TYPE_DEFINED);
 
         databaseReference.push().setValue(request);
-    }
-
-    private int getStartingColor() {
-        @ColorRes int[] colorResId = new int[] {R.color.tree_material_red, R.color.tree_material_green,
-                R.color.tree_material_blue, R.color.tree_material_yellow};
-        @ColorRes int selectedColorResID = colorResId[new Random().nextInt(colorResId.length - 1)];
-        return ContextCompat.getColor(this, selectedColorResID);
     }
 
     final static class PagerAdapter extends FragmentPagerAdapter {
 
         private static int ITEMS = 2;
-        private final int startingColor;
+        private final ChristmasColor startingColor;
 
-        PagerAdapter(FragmentManager fm, final int startingColor) {
+        PagerAdapter(FragmentManager fm, final ChristmasColor startingColor) {
             super(fm);
             this.startingColor = startingColor;
         }
