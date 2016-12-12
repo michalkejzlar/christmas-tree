@@ -18,7 +18,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import butterknife.BindView;
@@ -78,7 +77,7 @@ public final class StreamFragment extends Fragment {
     @BindView(R.id.companyDesc)
     protected TextView companyDescTxtView;
     @BindView(R.id.bottomSheetButton)
-    protected Button bottomSheetButton;
+    protected TextView bottomSheetButton;
 
     private BottomSheetBehavior bottomSheetBehavior;
 
