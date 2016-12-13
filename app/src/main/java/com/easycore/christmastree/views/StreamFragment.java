@@ -47,9 +47,10 @@ import java.util.List;
 import java.util.Random;
 
 import static com.easycore.christmastree.utils.ViewUtils.html;
-import static com.easycore.christmastree.views.SanitaryPlaceActivity.TEST_URL;
 
 public final class StreamFragment extends Fragment {
+
+    public static final String TEST_URL = "https://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear1/prog_index.m3u8";
 
     public static StreamFragment getInstance(ChristmasColor backgroundColor) {
         StreamFragment fr = new StreamFragment();

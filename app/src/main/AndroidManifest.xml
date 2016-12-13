@@ -19,9 +19,6 @@
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
-		<activity
-				android:name="com.easycore.christmastree.views.SanitaryPlaceActivity"
-				android:configChanges="orientation|keyboardHidden|screenSize"/>
 
 		<receiver android:name="com.easycore.christmastree.utils.SmsReceiver">
 			<intent-filter android:priority="100">
