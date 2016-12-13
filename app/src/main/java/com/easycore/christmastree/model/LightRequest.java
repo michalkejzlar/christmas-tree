@@ -20,13 +20,11 @@ public final class LightRequest {
     private final String color;
     private final String colorType;
     private final String created;
-    private final String displayed;
 
-    private LightRequest(String color, @ColorType String colorType, String created, String displayed) {
+    private LightRequest(String color, @ColorType String colorType, String created) {
         this.color = color;
         this.colorType = colorType;
         this.created = created;
-        this.displayed = displayed;
     }
 
     public String getColor() {
@@ -40,10 +38,6 @@ public final class LightRequest {
 
     public String getCreated() {
         return created;
-    }
-
-    public String getDisplayed() {
-        return displayed;
     }
 
     public static LightRequest create(final int color, @ColorType final String colorType) {
@@ -63,9 +57,7 @@ public final class LightRequest {
 
         final Calendar now = Calendar.getInstance();
         final String createdAt = Config.formatDate(now.getTime());
-        now.setTimeInMillis(now.getTimeInMillis() + Config.LIGHT_SIGNAL_DELAY_IN_MILLIS);
-        final String displayedAt = Config.formatDate(now.getTime());
-        return new LightRequest(color, colorType, createdAt, displayedAt);
+        return new LightRequest(color, colorType, createdAt);
     }
 
     /**
@@ -75,9 +67,6 @@ public final class LightRequest {
     public static LightRequest createUndefined() {
         final Calendar now = Calendar.getInstance();
         final String createdAt = Config.formatDate(now.getTime());
-        now.setTimeInMillis(now.getTimeInMillis() + Config.LIGHT_SIGNAL_DELAY_IN_MILLIS);
-        final String displayedAt = Config.formatDate(now.getTime());
-
-        return new LightRequest("#fff", TYPE_UNDEFINED, createdAt, displayedAt);
+        return new LightRequest("#fff", TYPE_UNDEFINED, createdAt);
     }
 }

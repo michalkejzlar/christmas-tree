@@ -102,7 +102,7 @@ public final class StreamFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_stream_detail, container, false);
         ButterKnife.bind(this, view);
 
-        // set video view to 80% of display height.
+        // set video view to 85% of display height.
         final Display display = getActivity().getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
@@ -200,9 +200,6 @@ public final class StreamFragment extends Fragment {
             @Override
             public void onAnimationEnd(Animator animation) {
                 view.setVisibility(View.INVISIBLE);
-                if (getView() == null) {
-                    return;
-                }
                 bottomSheetLayout.setBackgroundColor(christmasColor.getMaterialColor());
                 animator.removeAllListeners();
 
@@ -227,7 +224,6 @@ public final class StreamFragment extends Fragment {
         }
         final View view = getView().findViewById(R.id.revealView);
 
-        int colorResId;
         switch (button.getId()) {
             case R.id.redColorTxtView:
                 christmasColor = ChristmasColor.red(getContext());

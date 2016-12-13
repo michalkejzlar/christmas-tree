@@ -10,7 +10,7 @@ import com.easycore.christmastree.R;
 
 import java.util.Random;
 
-public class ChristmasColor implements Parcelable {
+public final class ChristmasColor implements Parcelable {
 
     private final int treeColor;
     private final int materialColor;
