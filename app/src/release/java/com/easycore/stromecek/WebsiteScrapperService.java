@@ -1,4 +1,4 @@
-package com.easycore.stromecek;
+package com.easycore.christmastree;
 
 
 import android.app.IntentService;

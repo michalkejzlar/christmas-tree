@@ -6,7 +6,7 @@
 		android:id="@+id/coordinator"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		tools:context="com.easycore.stromecek.views.SanitaryPlaceActivity">
+		tools:context="com.easycore.christmastree.views.SanitaryPlaceActivity">
 
 	<android.support.v4.widget.NestedScrollView
 			android:id="@+id/scrollView"
