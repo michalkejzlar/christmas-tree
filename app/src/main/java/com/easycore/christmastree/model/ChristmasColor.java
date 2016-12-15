@@ -58,9 +58,12 @@ public final class ChristmasColor implements Parcelable {
 
     public static ChristmasColor random(Context context) {
         @ColorRes int[] matColorResId = new int[] {R.color.tree_material_red, R.color.tree_material_green,
-                R.color.tree_material_blue, R.color.tree_material_yellow};
+                R.color.tree_material_blue, R.color.tree_material_yellow,
+                R.color.tree_material_purple, R.color.tree_material_orange};
+
         @ColorRes int[] treeColorResId = new int[] {R.color.tree_red, R.color.tree_green,
-                R.color.tree_blue, R.color.tree_yellow};
+                R.color.tree_blue, R.color.tree_yellow,
+                R.color.tree_purple, R.color.tree_orange};
 
         if (matColorResId.length != treeColorResId.length) {
             throw new IllegalArgumentException("You must have same amount of material and tree colors.");
@@ -90,5 +93,15 @@ public final class ChristmasColor implements Parcelable {
     public static ChristmasColor yellow(Context context) {
         return new ChristmasColor(ContextCompat.getColor(context, R.color.tree_yellow),
                 ContextCompat.getColor(context, R.color.tree_material_yellow));
+    }
+
+    public static ChristmasColor purple(Context context) {
+        return new ChristmasColor(ContextCompat.getColor(context, R.color.tree_purple),
+                ContextCompat.getColor(context, R.color.tree_material_purple));
+    }
+
+    public static ChristmasColor orange(Context context) {
+        return new ChristmasColor(ContextCompat.getColor(context, R.color.tree_orange),
+                ContextCompat.getColor(context, R.color.tree_material_orange));
     }
 }

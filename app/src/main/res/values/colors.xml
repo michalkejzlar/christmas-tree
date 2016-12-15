@@ -29,10 +29,14 @@
     <color name="tree_green">#0f0</color>
     <color name="tree_blue">#00f</color>
     <color name="tree_yellow">#ff0</color>
+    <color name="tree_purple">#FFD421EC</color>
+    <color name="tree_orange">#FFFF5722</color>
 
     <color name="tree_material_red">#FFB71C38</color>
     <color name="tree_material_green">#FF00C853</color>
     <color name="tree_material_blue">#FF0097A7</color>
     <color name="tree_material_yellow">#FFFBC02D</color>
+    <color name="tree_material_purple">#FF8E24AA</color>
+    <color name="tree_material_orange">#FFFF5722</color>
 
 </resources>

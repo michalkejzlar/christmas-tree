@@ -234,7 +234,9 @@ public final class StreamFragment extends Fragment {
         }
     }
 
-    @OnClick({R.id.redColorTxtView, R.id.greenColorTxtView, R.id.blueColorTxtView, R.id.yellowColorTxtView})
+    @OnClick({R.id.redColorTxtView, R.id.greenColorTxtView,
+            R.id.blueColorTxtView, R.id.yellowColorTxtView,
+            R.id.purpleColorTxtView, R.id.orangeColorTxtView})
     public void onColorClicked(View button) {
         if (getView() == null) {
             return;
@@ -253,6 +255,12 @@ public final class StreamFragment extends Fragment {
                 break;
             case R.id.yellowColorTxtView:
                 christmasColor = ChristmasColor.yellow(getContext());
+                break;
+            case R.id.purpleColorTxtView:
+                christmasColor = ChristmasColor.purple(getContext());
+                break;
+            case R.id.orangeColorTxtView:
+                christmasColor = ChristmasColor.orange(getContext());
                 break;
             default:
                 throw new IllegalArgumentException("Undefined color clicked.");

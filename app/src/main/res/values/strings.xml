@@ -16,10 +16,9 @@
     <string name="color_green">Zeleně</string>
     <string name="color_blue">Modře</string>
     <string name="color_yellow">Žlutě</string>
-    <string name="color_pink">Růžově</string>
     <string name="color_purple">Fialově</string>
-    <string name="color_orange">Oranžově</string>
-    
+    <string name="color_silver">Oranžově</string>
+
     
     <string name="color_question">Jakou barvou chceš stromeček rozsvítit?</string>
     <string name="thank_you">Děkujeme!</string>

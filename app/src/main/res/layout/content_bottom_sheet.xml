@@ -2,6 +2,7 @@
 <com.easycore.christmastree.views.MyRevealFrameLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:tools="http://schemas.android.com/tools"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
@@ -12,7 +13,7 @@
 		  android:background="@color/colorPrimary"/>
 
 	<LinearLayout android:layout_width="match_parent"
-				  android:layout_height="match_parent"
+				  android:layout_height="wrap_content"
 				  android:orientation="vertical">
 
 		<TextView android:id="@+id/bottomSheetButton"
@@ -27,45 +28,76 @@
 				  tools:textColor="@android:color/black"
 				  android:text="@string/color_question"/>
 
-		<TextView android:id="@+id/redColorTxtView"
-				  android:layout_width="match_parent"
-				  android:layout_height="wrap_content"
-				  style="@style/ColorButtons"
-				  tools:textColor="@android:color/black"
-				  android:drawableLeft="@drawable/circle_red"
-				  android:drawableStart="@drawable/circle_red"
-				  android:text="@string/color_red"
-				  android:src="@drawable/circle_red"/>
+		<android.support.v7.widget.GridLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:alignmentMode="alignBounds"
+				app:columnCount="3"
+				app:rowOrderPreserved="false"
+				app:useDefaultMargins="true">
 
-		<TextView android:id="@+id/greenColorTxtView"
-				  android:layout_width="match_parent"
-				  android:layout_height="wrap_content"
-				  style="@style/ColorButtons"
-				  tools:textColor="@android:color/black"
-				  android:drawableLeft="@drawable/circle_green"
-				  android:drawableStart="@drawable/circle_green"
-				  android:text="@string/color_green"
-				  android:src="@drawable/circle_red"/>
+			<TextView android:id="@+id/redColorTxtView"
+					  android:layout_width="0dp"
+					  android:layout_height="wrap_content"
+					  app:layout_columnWeight="1"
+					  app:layout_gravity="fill_horizontal"
+					  android:gravity="center_horizontal"
+					  style="@style/ColorButtons"
+					  tools:textColor="@android:color/black"
+					  android:drawableTop="@drawable/circle_red"
+					  android:text="@string/color_red"/>
 
-		<TextView android:id="@+id/blueColorTxtView"
-				  android:layout_width="match_parent"
-				  android:layout_height="wrap_content"
-				  style="@style/ColorButtons"
-				  tools:textColor="@android:color/black"
-				  android:drawableLeft="@drawable/circle_blue"
-				  android:drawableStart="@drawable/circle_blue"
-				  android:text="@string/color_blue"
-				  android:src="@drawable/circle_blue"/>
+			<TextView android:id="@+id/greenColorTxtView"
+					  android:layout_width="0dp"
+					  android:layout_height="wrap_content"
+					  app:layout_columnWeight="1"
+					  app:layout_gravity="fill_horizontal"
+					  style="@style/ColorButtons"
+					  tools:textColor="@android:color/black"
+					  android:drawableTop="@drawable/circle_green"
+					  android:text="@string/color_green"/>
 
-		<TextView android:id="@+id/yellowColorTxtView"
-				  android:layout_width="match_parent"
-				  android:layout_height="wrap_content"
-				  style="@style/ColorButtons"
-				  tools:textColor="@android:color/black"
-				  android:drawableLeft="@drawable/circle_yellow"
-				  android:drawableStart="@drawable/circle_yellow"
-				  android:text="@string/color_yellow"
-				  android:src="@drawable/circle_yellow"/>
+			<TextView android:id="@+id/blueColorTxtView"
+					  android:layout_width="0dp"
+					  android:layout_height="wrap_content"
+					  app:layout_columnWeight="1"
+					  app:layout_gravity="fill_horizontal"
+					  style="@style/ColorButtons"
+					  tools:textColor="@android:color/black"
+					  android:drawableTop="@drawable/circle_blue"
+					  android:text="@string/color_blue"/>
+
+			<TextView android:id="@+id/yellowColorTxtView"
+					  android:layout_width="0dp"
+					  android:layout_height="wrap_content"
+					  app:layout_columnWeight="1"
+					  app:layout_gravity="fill_horizontal"
+					  style="@style/ColorButtons"
+					  tools:textColor="@android:color/black"
+					  android:drawableTop="@drawable/circle_yellow"
+					  android:text="@string/color_yellow"/>
+
+			<TextView android:id="@+id/purpleColorTxtView"
+					  android:layout_width="0dp"
+					  android:layout_height="wrap_content"
+					  app:layout_columnWeight="1"
+					  app:layout_gravity="fill_horizontal"
+					  style="@style/ColorButtons"
+					  tools:textColor="@android:color/black"
+					  android:drawableTop="@drawable/circle_purple"
+					  android:text="@string/color_purple"/>
+
+			<TextView android:id="@+id/orangeColorTxtView"
+					  android:layout_width="0dp"
+					  android:layout_height="wrap_content"
+					  app:layout_columnWeight="1"
+					  app:layout_gravity="fill_horizontal"
+					  style="@style/ColorButtons"
+					  tools:textColor="@android:color/black"
+					  android:drawableTop="@drawable/circle_orange"
+					  android:text="@string/color_silver"/>
+
+		</android.support.v7.widget.GridLayout>
 
 		<TextView android:id="@+id/submitButton"
 				  android:layout_width="match_parent"
@@ -76,6 +108,7 @@
 				  android:gravity="center"
 				  tools:textColor="@android:color/black"
 				  android:text="@string/change_color"/>
+
 	</LinearLayout>
 
 
