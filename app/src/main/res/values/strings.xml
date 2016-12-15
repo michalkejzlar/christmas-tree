@@ -7,7 +7,8 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="btn_show_stream">Video stream</string>
-    <string name="intro_text">Rozsviť si vánoční stromek podle sebe a podpoř tím nadační projekt. \n\nStačí si vybrat barvu a poslat DMS.</string>
+    <string name="intro_text_init">Rozsviť si vánoční stromek podle sebe a podpoř tím nadační projekt. \n\nStačí si vybrat barvu a poslat DMS.</string>
+    <string name="intro_text" formatted="false">Rozsviť si vánoční stromek podle sebe a podpoř tím nadační projekt. %s %s %s\n\nStačí si vybrat barvu a poslat DMS. %s</string>
     <string name="change_color">Rozsvítit stromeček!</string>
 
     <string name="project_label_daily">Dnes svítíme pro projekt:</string>

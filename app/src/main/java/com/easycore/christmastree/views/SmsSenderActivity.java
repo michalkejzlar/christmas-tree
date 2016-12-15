@@ -61,7 +61,7 @@ abstract class SmsSenderActivity extends AppCompatActivity {
         } else {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
                 Snackbar.make(findViewById(android.R.id.content), R.string.sms_permissions_needed,
-                        Snackbar.LENGTH_INDEFINITE)
+                        Snackbar.LENGTH_LONG)
                         .setAction(android.R.string.ok, new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {

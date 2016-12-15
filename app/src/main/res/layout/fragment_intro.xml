@@ -6,7 +6,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
-	<TextView android:id="@+id/sanitaryPlaceTextView"
+	<TextView android:id="@+id/introTextView"
 			  android:layout_width="wrap_content"
 			  android:layout_height="wrap_content"
 			  style="@style/ClickableTextViewStyle"
@@ -16,7 +16,7 @@
 			  android:paddingRight="@dimen/activity_horizontal_margin"
 			  android:textSize="34sp"
 			  tools:textColor="@android:color/black"
-			  android:text="@string/intro_text"/>
+			  android:text="@string/intro_text_init"/>
 
 	<ImageButton
 			android:id="@+id/arrowNext"

@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.easycore.christmastree.R;
@@ -22,6 +24,9 @@ public class IntroFragment extends Fragment {
         fr.setArguments(args);
         return fr;
     }
+
+    @BindView(R.id.introTextView)
+    protected TextView introTextView;
 
     @Override
     public void onAttach(Activity activity) {
@@ -46,9 +51,15 @@ public class IntroFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_intro, container, false);
         ButterKnife.bind(this, view);
-        ChristmasColor color = getArguments().getParcelable("backgroundColor");
+        final ChristmasColor color = getArguments().getParcelable("backgroundColor");
         assert color != null; // check earlier in onCreate()
         view.setBackgroundColor(color.getMaterialColor());
+
+        final String treeEmoji = new String(Character.toChars(0x1F384)); // Treeeees!
+        final String presentEmoji = new String(Character.toChars(0x1F381)); // Giiiifts!
+        introTextView.setText(getString(R.string.intro_text, treeEmoji,
+                treeEmoji, treeEmoji, presentEmoji));
+
         return view;
     }
 
