@@ -4,8 +4,10 @@ package com.easycore.christmastree;
 import android.text.TextUtils;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 public final class Config {
 
@@ -31,5 +33,30 @@ public final class Config {
         synchronized (Config.class) {
             return dateFormatter.format(date);
         }
+    }
+
+    /**
+     * Picks random number every day
+     * @param numberOfProjects Array size of objects to randomize in
+     * @return random number every day.
+     */
+    public static int randomNumberEveryDay(int numberOfProjects) {
+        final Calendar calendar = Calendar.getInstance();
+        final int dayOfYear = calendar.get(Calendar.DAY_OF_YEAR);
+        final Random rnd = new Random(dayOfYear);
+        return rnd.nextInt(numberOfProjects);
+    }
+
+    /**
+     * Picks random number every hour
+     * @param numberOfProjects Array size of objects to randomize in
+     * @return random number every hour.
+     */
+    public static int randomNumberEveryHour(int numberOfProjects) {
+        final Calendar calendar = Calendar.getInstance();
+        final int dayOfYear = calendar.get(Calendar.DAY_OF_YEAR);
+        final int hourOfDay = calendar.get(Calendar.HOUR_OF_DAY);
+        final Random rnd = new Random(dayOfYear * hourOfDay);
+        return rnd.nextInt(numberOfProjects);
     }
 }

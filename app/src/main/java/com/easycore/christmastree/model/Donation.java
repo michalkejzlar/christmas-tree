@@ -1,6 +1,9 @@
 package com.easycore.christmastree.model;
 
-public final class Donation {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public final class Donation implements Parcelable {
 
     private final String projectName;
     private final String projectDesc;
@@ -18,6 +21,27 @@ public final class Donation {
         this.picture = picture;
         this.smsCode = smsCode;
     }
+
+    protected Donation(Parcel in) {
+        projectName = in.readString();
+        projectDesc = in.readString();
+        companyName = in.readString();
+        companyDesc = in.readString();
+        picture = in.readString();
+        smsCode = in.readString();
+    }
+
+    public static final Creator<Donation> CREATOR = new Creator<Donation>() {
+        @Override
+        public Donation createFromParcel(Parcel in) {
+            return new Donation(in);
+        }
+
+        @Override
+        public Donation[] newArray(int size) {
+            return new Donation[size];
+        }
+    };
 
     @Override
     public String toString() {
@@ -49,6 +73,21 @@ public final class Donation {
 
     public String getSmsCode() {
         return smsCode;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(projectName);
+        parcel.writeString(projectDesc);
+        parcel.writeString(companyName);
+        parcel.writeString(companyDesc);
+        parcel.writeString(picture);
+        parcel.writeString(smsCode);
     }
 
     public static final class Builder {

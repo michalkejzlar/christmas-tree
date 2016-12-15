@@ -45,9 +45,9 @@ import com.google.android.exoplayer2.util.Util;
 import io.codetail.animation.ViewAnimationUtils;
 
 import java.util.List;
-import java.util.Random;
 
 import static com.easycore.christmastree.Config.TREE_STREAM_URL;
+import static com.easycore.christmastree.Config.randomNumberEveryHour;
 import static com.easycore.christmastree.utils.ViewUtils.getWindowHeightExcludedDecorViews;
 import static com.easycore.christmastree.utils.ViewUtils.html;
 
@@ -85,6 +85,7 @@ public final class StreamFragment extends Fragment {
 
     private BottomSheetBehavior bottomSheetBehavior;
     private ChristmasColor christmasColor;
+    private Donation selectedDonation = null;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -279,8 +280,13 @@ public final class StreamFragment extends Fragment {
     private void loadDonationProject() {
         final DonationsDb db = new DonationsDb(getActivity());
         final List<Donation> projects = db.getDonations();
-        final Donation project = projects.get(new Random().nextInt(projects.size()));
 
+        final int size = projects.size();
+        selectedDonation = projects.get(randomNumberEveryHour(size));
+        showDonationProject(selectedDonation);
+    }
+
+    private void showDonationProject(final Donation project) {
         projectNameTxtView.setText(project.getProjectName());
         projectDescTxtView.setText(html(project.getProjectDescription()));
         companyNameTxtView.setText(project.getCompanyName());
