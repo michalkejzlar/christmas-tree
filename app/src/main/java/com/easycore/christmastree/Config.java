@@ -11,7 +11,9 @@ public final class Config {
 
     public static final String DONATION_PHONE_NUMBER = "87 777";
 
-    public static final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.getDefault());
+    public static final String TREE_STREAM_URL = "http://35.156.238.168:1935/live/stromecek/playlist.m3u8";
+
+    private static final SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.getDefault());
 
     private Config() {
 

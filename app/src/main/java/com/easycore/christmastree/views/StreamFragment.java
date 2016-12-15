@@ -3,6 +3,7 @@ package com.easycore.christmastree.views;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,12 +11,11 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.support.v4.widget.NestedScrollView;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +36,7 @@ import com.google.android.exoplayer2.trackselection.AdaptiveVideoTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
+import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
@@ -46,11 +47,13 @@ import io.codetail.animation.ViewAnimationUtils;
 import java.util.List;
 import java.util.Random;
 
+import static com.easycore.christmastree.Config.TREE_STREAM_URL;
+import static com.easycore.christmastree.utils.ViewUtils.getWindowHeightExcludedDecorViews;
 import static com.easycore.christmastree.utils.ViewUtils.html;
 
 public final class StreamFragment extends Fragment {
 
-    public static final String TEST_URL = "https://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear1/prog_index.m3u8";
+    private static final int BOTTOM_SHEET_VISIBLE_SCROLL_HEIGHT = 600;
 
     public static StreamFragment getInstance(ChristmasColor backgroundColor) {
         StreamFragment fr = new StreamFragment();
@@ -64,8 +67,8 @@ public final class StreamFragment extends Fragment {
     protected NestedScrollView scrollView;
     @BindView(R.id.videoLayout)
     protected FrameLayout videoLayout;
-//    @BindView(R.id.player_view)
-//    protected SimpleExoPlayerView playerView;
+    @BindView(R.id.player_view)
+    protected SimpleExoPlayerView playerView;
     @BindView(R.id.content_bottom_sheet)
     protected MyRevealFrameLayout bottomSheetLayout;
 
@@ -100,14 +103,11 @@ public final class StreamFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_stream_detail, container, false);
+        final View view = inflater.inflate(R.layout.fragment_stream_detail, container, false);
         ButterKnife.bind(this, view);
 
-        // set video view to 85% of display height.
-        final Display display = getActivity().getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        videoLayout.getLayoutParams().height = (int) (size.y * 0.85f);
+        // Set height to video frame
+        videoLayout.getLayoutParams().height = getWindowHeightExcludedDecorViews(getActivity());
 
         setupBottomSheet((NestedScrollView) view.findViewById(R.id.bottom_sheet));
         bottomSheetLayout.setBackgroundColor(christmasColor.getMaterialColor());
@@ -117,13 +117,13 @@ public final class StreamFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        setupVideoPlayer();
+        setupVideoPlayer();
         loadDonationProject();
 
         scrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if (scrollY > 500) {
+                if (scrollY > BOTTOM_SHEET_VISIBLE_SCROLL_HEIGHT) {
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                 } else {
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
@@ -136,10 +136,10 @@ public final class StreamFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        // start playback
-//        if (playerView.getPlayer() != null) {
-//            playerView.getPlayer().setPlayWhenReady(true);
-//        }
+//          start playback
+        if (playerView.getPlayer() != null) {
+            playerView.getPlayer().setPlayWhenReady(true);
+        }
     }
 
     @Override
@@ -147,9 +147,9 @@ public final class StreamFragment extends Fragment {
         super.onPause();
 
         // stop playback
-//        if (playerView.getPlayer() != null) {
-//            playerView.getPlayer().setPlayWhenReady(false);
-//        }
+        if (playerView.getPlayer() != null) {
+            playerView.getPlayer().setPlayWhenReady(false);
+        }
     }
 
     @Override
@@ -161,7 +161,7 @@ public final class StreamFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-//        playerView.getPlayer().release();
+        playerView.getPlayer().release();
     }
 
     private void setupBottomSheet(NestedScrollView bottomSheet) {
@@ -195,7 +195,7 @@ public final class StreamFragment extends Fragment {
         // Android native animator
         final Animator animator =
                 ViewAnimationUtils.createCircularReveal(view, cx, cy, 0, finalRadius);
-        animator.setInterpolator(new AccelerateDecelerateInterpolator());
+        animator.setInterpolator(new LinearOutSlowInInterpolator());
         animator.setDuration(250);
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -206,6 +206,22 @@ public final class StreamFragment extends Fragment {
 
             }
         });
+        animator.start();
+    }
+
+    @OnClick(R.id.projectTextView)
+    public void onProjectLabelClicked() {
+        int scrollTo;
+        if (scrollView.getScrollY() > 0) {
+            // scroll back
+            scrollTo = 0;
+        } else {
+            scrollTo = BOTTOM_SHEET_VISIBLE_SCROLL_HEIGHT + 100;
+        }
+
+        final ObjectAnimator animator = ObjectAnimator.ofInt(scrollView, "scrollY", scrollTo);
+        animator.setInterpolator(new LinearOutSlowInInterpolator());
+        animator.setDuration(250);
         animator.start();
     }
 
@@ -272,12 +288,12 @@ public final class StreamFragment extends Fragment {
         final SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
 
         // Bind the player to the view.
-//        playerView.setUseController(false);
-//        playerView.setPlayer(player);
+        playerView.setUseController(false);
+        playerView.setPlayer(player);
 
         final DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(getActivity(), Util.getUserAgent(getActivity(), BuildConfig.APPLICATION_ID));
         player.setPlayWhenReady(true);
-        HlsMediaSource hlsMediaSource = new HlsMediaSource(Uri.parse(TEST_URL), dataSourceFactory, 0, null, null);
+        HlsMediaSource hlsMediaSource = new HlsMediaSource(Uri.parse(TREE_STREAM_URL), dataSourceFactory, 0, null, null);
         player.prepare(hlsMediaSource);
     }
 }

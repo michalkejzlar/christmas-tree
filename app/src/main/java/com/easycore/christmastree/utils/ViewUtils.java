@@ -23,6 +23,7 @@ import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -46,7 +47,8 @@ import android.view.View;
  */
 public class ViewUtils {
 
-    private ViewUtils() { }
+    private ViewUtils() {
+    }
 
     public static int getActionBarSize(@NonNull Context context) {
         TypedValue value = new TypedValue();
@@ -54,6 +56,38 @@ public class ViewUtils {
         int actionBarSize = TypedValue.complexToDimensionPixelSize(
                 value.data, context.getResources().getDisplayMetrics());
         return actionBarSize;
+    }
+
+    public static int getNavigationBarHeight(Context context) {
+        Resources resources = context.getResources();
+        int resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            return resources.getDimensionPixelSize(resourceId);
+        }
+        return 0;
+    }
+
+    public static int getStatusBarHeight(Context context) {
+        int result = 0;
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = context.getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
+
+    public static Point getDisplaySize(final Activity activity) {
+        final Display display = activity.getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        return size;
+    }
+
+    public static int getWindowHeightExcludedDecorViews(Activity activity) {
+        final Point size = getDisplaySize(activity);
+        final int navHeight = getNavigationBarHeight(activity);
+        final int statusBarHeight = getStatusBarHeight(activity);
+        return statusBarHeight + size.y - navHeight;
     }
 
     @TargetApi(24)
@@ -70,12 +104,12 @@ public class ViewUtils {
      * PhoneWindowManager.
      */
     public static boolean isNavBarOnBottom(@NonNull Context context) {
-        final Resources res= context.getResources();
+        final Resources res = context.getResources();
         final Configuration cfg = context.getResources().getConfiguration();
-        final DisplayMetrics dm =res.getDisplayMetrics();
+        final DisplayMetrics dm = res.getDisplayMetrics();
         boolean canMove = (dm.widthPixels != dm.heightPixels &&
                 cfg.smallestScreenWidthDp < 600);
-        return(!canMove || dm.widthPixels < dm.heightPixels);
+        return (!canMove || dm.widthPixels < dm.heightPixels);
     }
 
     @TargetApi(21)
@@ -172,7 +206,7 @@ public class ViewUtils {
 
     /**
      * Recursive binary search to find the best size for the text.
-     *
+     * <p>
      * Adapted from https://github.com/grantland/android-autofittextview
      */
     public static float getSingleLineTextSize(String text,
@@ -298,12 +332,12 @@ public class ViewUtils {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, res.getDisplayMetrics());
     }
 
-    public static int getDisplayWidthInDp(Activity activity){
+    public static int getDisplayWidthInDp(Activity activity) {
         Display display = activity.getWindowManager().getDefaultDisplay();
         DisplayMetrics outMetrics = new DisplayMetrics();
         display.getMetrics(outMetrics);
 
-        float density  = activity.getResources().getDisplayMetrics().density;
+        float density = activity.getResources().getDisplayMetrics().density;
         return (int) (outMetrics.widthPixels / density);
     }
 

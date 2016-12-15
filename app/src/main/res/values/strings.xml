@@ -8,13 +8,19 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="btn_show_stream">Video stream</string>
     <string name="intro_text">Pošli DMSku a rozsviť si tím stromeček podle sebe. \n\nPřispěješ tím na dobrou věc.</string>
-    <string name="change_color">Rozsvítit!</string>
+    <string name="change_color">Rozsvítit stromeček!</string>
     <string name="project_label">Dnes svítíme pro projekt:</string>
     <string name="close">Zavřít</string>
+    
     <string name="color_red">Červeně</string>
     <string name="color_green">Zeleně</string>
     <string name="color_blue">Modře</string>
     <string name="color_yellow">Žlutě</string>
-    <string name="color_question">Jakou barvou bude svítit?</string>
+    <string name="color_pink">Růžově</string>
+    <string name="color_purple">Fialově</string>
+    <string name="color_orange">Oranžově</string>
+    
+    
+    <string name="color_question">Jakou barvou chceš stromeček rozsvítit?</string>
     <string name="thank_you">Děkujeme!</string>
 </resources>
