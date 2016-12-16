@@ -121,7 +121,7 @@ abstract class SmsSenderActivity extends AppCompatActivity {
 
             switch (getResultCode()) {
                 case Activity.RESULT_OK:
-
+                    onSMSSent();
                     break;
                 case SmsManager.RESULT_ERROR_GENERIC_FAILURE:
                 case SmsManager.RESULT_ERROR_NO_SERVICE:

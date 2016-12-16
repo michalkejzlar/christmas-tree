@@ -5,6 +5,10 @@ apply plugin: 'com.neenbedankt.android-apt'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.1"
+
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
     defaultConfig {
         applicationId "com.easycore.christmastree"
         minSdkVersion 16
@@ -18,8 +22,18 @@ android {
         buildConfigField 'boolean', 'USE_SCRAPER', 'false'
     }
 
+    signingConfigs {
+        release {
+            storeFile file(properties.getProperty("releaseKey"))
+            storePassword properties.getProperty("releaseStorePassword")
+            keyAlias properties.getProperty("releaseStoreAlias")
+            keyPassword properties.getProperty("releaseKeyPassword")
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
