@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -82,6 +81,8 @@ public final class StreamFragment extends Fragment {
     protected TextView companyDescTxtView;
     @BindView(R.id.bottomSheetButton)
     protected TextView bottomSheetButton;
+    @BindView(R.id.submitButton)
+    protected TextView submitButton;
 
     private BottomSheetBehavior bottomSheetBehavior;
     private ChristmasColor christmasColor;
@@ -112,6 +113,9 @@ public final class StreamFragment extends Fragment {
 
         setupBottomSheet((NestedScrollView) view.findViewById(R.id.bottom_sheet));
         bottomSheetLayout.setBackgroundColor(christmasColor.getMaterialColor());
+
+        final String presentEmoji = new String(Character.toChars(0x1F381)); // Giiiifts!
+        submitButton.setText(getString(R.string.light_christmas_tree, presentEmoji, presentEmoji));
         return view;
     }
 
@@ -271,11 +275,8 @@ public final class StreamFragment extends Fragment {
 
     @OnClick(R.id.submitButton)
     void lightChristmasTree() {
-        // TODO: 12/12/16 Send SMS
-        ((MainActivity) getActivity()).lightChristmasTree(christmasColor);
-        Toast.makeText(getActivity(), R.string.thank_you, Toast.LENGTH_SHORT).show();
+        ((MainActivity) getActivity()).sendSMSAndLightChristmasTree(selectedDonation, christmasColor);
     }
-
 
     private void loadDonationProject() {
         final DonationsDb db = new DonationsDb(getActivity());

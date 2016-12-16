@@ -11,7 +11,7 @@ import java.util.Random;
 
 public final class Config {
 
-    public static final String DONATION_PHONE_NUMBER = "00420721986731";
+    public static final String DONATION_PHONE_NUMBER = "87 777";
 
     public static final String TREE_STREAM_URL = "http://35.156.238.168:1935/live/stromecek/playlist.m3u8";
 

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Stromeček</string>
     <string name="btn_send_dms">Pošli DMS (%.2f Kč)</string>
-    <string name="sms_permissions_needed">Pro odesílání SMS je třeba udělit oprávnění</string>
+    <string name="sms_permissions_needed">Pro odesílání a potvrzení příjmu SMS je třeba udělit oprávnění</string>
 
     <string name="title_activity_fullscreen_player">FullscreenPlayerActivity</string>
     <string name="dummy_button">Dummy Button</string>
@@ -9,7 +9,7 @@
     <string name="btn_show_stream">Video stream</string>
     <string name="intro_text_init">Rozsviť si vánoční stromek podle sebe a podpoř tím nadační projekt. \n\nStačí si vybrat barvu a poslat DMS.</string>
     <string name="intro_text" formatted="false">Rozsviť si vánoční stromek podle sebe a podpoř tím nadační projekt. %s %s %s\n\nStačí si vybrat barvu a poslat DMS. %s</string>
-    <string name="change_color">Rozsvítit stromeček!</string>
+    <string name="light_christmas_tree" formatted="false">%s Rozsvítit stromeček! %s</string>
 
     <string name="project_label_daily">Dnes svítíme pro projekt:</string>
     <string name="project_label_hourly">Tuto hodinu svítíme pro projekt:</string>
@@ -25,5 +25,16 @@
 
     
     <string name="color_question">Jakou barvou chceš stromeček rozsvítit?</string>
-    <string name="thank_you">Děkujeme!</string>
+    <string name="sms_confirmation_message">Abys mohl stromek rozsvítit, musíš poslat DMS v hodnotě 30 Kč na číslo vybraného nadačního
+        projektu. Pošleme ho za tebe, OK? Po odeslání Ti přijde doručenka.
+    </string>
+    <string name="sms_confirmation_title">Poslat DMS?</string>
+    <string name="sms_yes">Ano, poslat.</string>
+    <string name="sms_no">Ne, nechci.</string>
+
+    <string name="sms_fail">Nepodařilo se poslat SMS. %s Zkontroluj, že jsi připojen k síti a můžeš posílat prémiové SMS.</string>
+    <string name="sending_sms">Posílám zprávu.</string>
+    <string name="thank_you_title">Děkujeme za podporu! %s</string>
+    <string name="thank_you_message">DMS byla odeslána na vybraný nadační projekt. Rozsvícení stromku kvůli přenosu vysílání a fronty lidí před tebou může chvilku trvat.</string>
+    <string name="understand">Rozumím</string>
 </resources>

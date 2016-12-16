@@ -107,7 +107,7 @@
 				  android:background="#66000000"
 				  android:gravity="center"
 				  tools:textColor="@android:color/black"
-				  android:text="@string/change_color"/>
+				  android:text="@string/light_christmas_tree"/>
 
 	</LinearLayout>
 
