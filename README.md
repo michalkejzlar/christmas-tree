@@ -9,3 +9,7 @@ This app can turn on DMX lights on christmas tree remotely by sending donation S
 2. Lights server listens on Firebase database changes, so make sure you have google-services.json generated from Firebase console and imported to project. Do not add it to Git.
 3. Have Wowza or any other streaming platform already setup. Link HLS/DASH/SmoothStreaming link to the app. 
 4. Make sure you have `donations-insert.sql` file inside `assets` folder. During first run, app reads it and fills database with records. If you don't have it, see `WebsiteScrapperService` to fetch new records from foundation website.
+
+## See in action
+
+![alt tag](https://raw.githubusercontent.com/michalkejzlar/christmas-tree/master/christmas-tree.gif)
